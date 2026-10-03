@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Degree Sprint</title>
+<meta name="description" content="Daily progress through eleven October courses and the UMPI Fall 2 term.">
+<meta property="og:title" content="Degree Sprint">
+<meta property="og:description" content="Today's plan and what's checked off, updated live.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231F7A55'/%3E%3Cpath d='M18 33l9 9 19-20' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root {
+  --bg: #F5F3EE; --surface: #FFFFFF; --surface-2: #FAF8F4; --ink: #17202A; --ink-2: #384350; --muted: #66707C; --faint: #98A0AA;
+  --line: #E6E1D8; --line-strong: #CEC7BA; --accent: #1F7A55; --accent-bg: #E2F2E9; --accent-ink: #145C3F; --navy: #1E3A5F;
+  --live: #12A150; --warn: #A15F00; --warn-bg: #FFF0D3; --streak: #C2410C; --streak-bg: #FFE9DB; --ring-track: #ECE7DE;
+  --sophia: #2A78D6; --sophia-bg: #E3EEFB; --sophia-ink: #174A86; --study: #E0592A; --study-bg: #FDE7DC; --study-ink: #8A3410;
+  --umpi: #17A673; --umpi-bg: #DCF3E9; --umpi-ink: #0E6446; --shadow: 0 1px 2px rgba(23, 32, 42, .05), 0 4px 16px rgba(23, 32, 42, .04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1318; --surface: #171C23; --surface-2: #1C222A; --ink: #E8ECF1; --ink-2: #C5CDD7; --muted: #9AA4B1; --faint: #6F7986;
+    --line: #29313B; --line-strong: #3B4552; --accent: #3CC48A; --accent-bg: #173326; --accent-ink: #92E4BF; --navy: #9CC0EE;
+    --live: #3BD07A; --warn: #F2B24C; --warn-bg: #3A2A10; --streak: #FF8B4D; --streak-bg: #3A2214; --ring-track: #262E38;
+    --sophia: #64A2EC; --sophia-bg: #182A40; --sophia-ink: #AFCDF5; --study: #F28C5E; --study-bg: #3A2218; --study-ink: #F7C2A8;
+    --umpi: #42CC99; --umpi-bg: #13332A; --umpi-ink: #A0E8CD; --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1318; --surface: #171C23; --surface-2: #1C222A; --ink: #E8ECF1; --ink-2: #C5CDD7; --muted: #9AA4B1; --faint: #6F7986;
+  --line: #29313B; --line-strong: #3B4552; --accent: #3CC48A; --accent-bg: #173326; --accent-ink: #92E4BF; --navy: #9CC0EE;
+  --live: #3BD07A; --warn: #F2B24C; --warn-bg: #3A2A10; --streak: #FF8B4D; --streak-bg: #3A2214; --ring-track: #262E38;
+  --sophia: #64A2EC; --sophia-bg: #182A40; --sophia-ink: #AFCDF5; --study: #F28C5E; --study-bg: #3A2218; --study-ink: #F7C2A8;
+  --umpi: #42CC99; --umpi-bg: #13332A; --umpi-ink: #A0E8CD; --shadow: none;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+button { font: inherit; color: inherit; }
+a { color: var(--navy); }
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 22px 16px 56px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.1; margin: 6px 0 6px; letter-spacing: -.02em; font-weight: 800; }
+h2 { font-size: 18px; margin: 0; letter-spacing: -.01em; }
+h3 { font-size: 15px; margin: 0; }
+.sub { color: var(--ink-2); margin: 0; max-width: 62ch; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.top { margin-bottom: 16px; }
+.updated { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.updated .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--faint); display: inline-block; margin-right: 6px; }
+.updated .dot.on { background: var(--live); }
+.banner { border-radius: 12px; padding: 10px 14px; margin-bottom: 14px; font-size: 14px; background: var(--surface-2); border: 1px dashed var(--line-strong); color: var(--ink-2); }
+.banner.warn { background: var(--warn-bg); border: 1px solid transparent; color: var(--ink); }
+.ownerbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 12px; padding: 8px 10px 8px 14px; margin-bottom: 14px; font-size: 14px; position: sticky; top: 8px; z-index: 5; box-shadow: var(--shadow); }
+.ownerbar .spacer { flex: 1; }
+.cols { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.stack { display: grid; gap: 16px; min-width: 0; }
+@media (max-width: 860px) { .cols { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); min-width: 0; }
+.card-h { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+/* hero */
+.hero { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: center; }
+@media (max-width: 420px) { .hero { grid-template-columns: minmax(0, 1fr); justify-items: start; } }
+.ring { display: block; }
+.ring-big { font-size: 30px; font-weight: 800; fill: var(--ink); }
+.ring-small { font-size: 12.5px; fill: var(--muted); font-weight: 600; }
+.day-title { font-size: 22px; font-weight: 800; letter-spacing: -.01em; margin: 2px 0 6px; }
+.status { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 17px; }
+.status .dot { width: 11px; height: 11px; border-radius: 50%; flex: none; background: var(--faint); }
+.status.live .dot { background: var(--live); box-shadow: 0 0 0 0 rgba(18, 161, 80, .5); animation: pulse 1.8s infinite; }
+.status.done .dot { background: var(--accent); }
+.status.late .dot { background: var(--warn); }
+.status.next .dot { background: var(--navy); }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(18, 161, 80, .45); } 70% { box-shadow: 0 0 0 10px rgba(18, 161, 80, 0); } 100% { box-shadow: 0 0 0 0 rgba(18, 161, 80, 0); } }
+@media (prefers-reduced-motion: reduce) { .status.live .dot { animation: none; } }
+.status-sub { color: var(--ink-2); font-size: 14px; margin-top: 2px; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; font-size: 13px; font-weight: 650; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink-2); }
+.pill.streak { background: var(--streak-bg); border-color: transparent; color: var(--streak); }
+.pill.good { background: var(--accent-bg); border-color: transparent; color: var(--accent-ink); }
+.pill.warn { background: var(--warn-bg); border-color: transparent; color: var(--warn); }
+.daynav { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.btn { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 10px; padding: 7px 12px; font-size: 14px; font-weight: 650; cursor: pointer; min-height: 38px; }
+.btn:hover { border-color: var(--ink-2); }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+:root[data-theme="dark"] .btn.primary { color: #08140E; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #08140E; } }
+.btn.small { min-height: 32px; padding: 4px 10px; font-size: 13px; }
+.btn:focus-visible, .check:focus-visible, .wday:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+/* sessions */
+.session { border-top: 1px solid var(--line); padding: 14px 0 4px; }
+.session:first-child { border-top: 0; padding-top: 0; }
+.session-h { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.session-h .when { color: var(--muted); font-size: 13px; }
+.tag { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+.tag.done { background: var(--accent-bg); color: var(--accent-ink); border-color: transparent; }
+.tag.live { background: var(--accent-bg); color: var(--accent-ink); border-color: transparent; }
+.tag.late { background: var(--warn-bg); color: var(--warn); border-color: transparent; }
+.session-h .spacer { flex: 1; }
+.rows { display: grid; }
+.row { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 7px 0; }
+.row + .row { border-top: 1px dashed var(--line); }
+.mark { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line-strong); display: grid; place-items: center; margin-top: 1px; }
+.row.done .mark { background: var(--accent); border-color: var(--accent); }
+.mark svg { width: 13px; height: 13px; }
+.check { width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--line-strong); background: var(--surface); display: grid; place-items: center; cursor: pointer; padding: 0; }
+.check[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+.check svg { width: 15px; height: 15px; }
+.row .t { min-width: 0; }
+.row .label { font-weight: 600; overflow-wrap: anywhere; }
+.row.done .label { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line-strong); }
+.row .meta { font-size: 12.5px; color: var(--muted); }
+.row .min { font-size: 13px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
+.chip { display: inline-flex; align-items: center; font-size: 11.5px; font-weight: 750; padding: 1px 8px; border-radius: 6px; margin-right: 6px; vertical-align: 1px; white-space: nowrap; }
+.chip.Sophia { background: var(--sophia-bg); color: var(--sophia-ink); }
+.chip.Study { background: var(--study-bg); color: var(--study-ink); }
+.chip.UMPI { background: var(--umpi-bg); color: var(--umpi-ink); }
+.info { font-size: 14px; color: var(--ink-2); background: var(--surface-2); border-radius: 10px; padding: 8px 12px; margin: 6px 0; }
+.empty { color: var(--muted); font-style: italic; margin: 4px 0; }
+details > summary { cursor: pointer; font-weight: 650; color: var(--navy); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸ "; }
+details[open] > summary::before { content: "▾ "; }
+/* note + cheer */
+.note-text { font-size: 16px; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.note-text::before { content: "“"; color: var(--faint); }
+.note-text::after { content: "”"; color: var(--faint); }
+textarea { width: 100%; min-height: 76px; border: 1px solid var(--line-strong); border-radius: 10px; padding: 10px; font: inherit; background: var(--surface); color: var(--ink); resize: vertical; }
+.cheer { background: linear-gradient(135deg, var(--accent-bg), var(--surface) 70%); }
+/* week */
+.week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+.wday { border: 1px solid var(--line); background: var(--surface-2); border-radius: 12px; padding: 8px 4px 6px; text-align: center; cursor: pointer; display: grid; gap: 4px; justify-items: center; min-width: 0; }
+.wday.sel { border-color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
+.wday.today .dnum { color: var(--accent-ink); }
+.wday .dname { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.wday .dnum { font-size: 16px; font-weight: 800; line-height: 1; }
+.wbar { width: 14px; height: 38px; border-radius: 7px; background: var(--ring-track); position: relative; overflow: hidden; }
+.wbar i { position: absolute; left: 0; right: 0; bottom: 0; background: var(--accent); border-radius: 7px; }
+.wday .wst { font-size: 11px; color: var(--muted); height: 15px; }
+.wday.complete .wst { color: var(--accent-ink); font-weight: 800; }
+.wday.short .wst { color: var(--warn); font-weight: 700; }
+/* big picture */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tile { background: var(--surface-2); border-radius: 12px; padding: 10px 12px; }
+.tile b { display: block; font-size: 24px; letter-spacing: -.02em; line-height: 1.15; }
+.tile span { font-size: 12.5px; color: var(--muted); display: block; }
+.meter { margin-top: 12px; }
+.meter .top-line { display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px; }
+.track { height: 9px; border-radius: 99px; background: var(--ring-track); overflow: hidden; margin-top: 5px; }
+.track i { display: block; height: 100%; background: var(--accent); border-radius: 99px; }
+.clist { margin-top: 14px; display: grid; gap: 10px; }
+.crow { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+.crow .name { font-weight: 650; font-size: 14px; flex: 1 1 auto; min-width: 0; }
+.crow .st { font-size: 12.5px; color: var(--muted); white-space: nowrap; margin-left: auto; }
+.crow .st.ok { color: var(--accent-ink); font-weight: 700; }
+.crow .track { flex-basis: 100%; height: 6px; margin-top: 2px; }
+.crow.skip { opacity: .5; }
+.group-label { font-size: 12px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 16px; }
+/* milestones */
+.ms { display: grid; gap: 0; margin-top: 4px; }
+.mrow { display: grid; grid-template-columns: 64px 18px minmax(0, 1fr); gap: 10px; align-items: start; padding: 6px 0; }
+.mrow .md { font-size: 13px; color: var(--muted); font-weight: 650; padding-top: 1px; }
+.mrow .mi { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--line-strong); margin-top: 4px; background: var(--surface); }
+.mrow.hit .mi { background: var(--accent); border-color: var(--accent); }
+.mrow.next .mi { border-color: var(--navy); }
+.mrow .ml { font-size: 14px; }
+.mrow .ml small { display: block; color: var(--muted); font-size: 12.5px; }
+.mrow.hit .ml { color: var(--ink-2); }
+footer { margin-top: 28px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; }
+footer button { background: none; border: 0; padding: 0; color: var(--navy); cursor: pointer; text-decoration: underline; font-size: 13px; }
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 12px; font-size: 14px; font-weight: 600; z-index: 60; max-width: calc(100vw - 32px); box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+/* owner */
+.syncbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: space-between; }
+.sync { font-size: 13px; font-weight: 650; display: inline-flex; gap: 6px; align-items: center; }
+.sync.ok { color: var(--accent-ink); }
+.sync.busy { color: var(--muted); }
+.sync.err { color: var(--warn); }
+dialog { border: 1px solid var(--line); border-radius: 16px; padding: 0; width: min(520px, calc(100vw - 32px)); background: var(--surface); color: var(--ink); }
+dialog::backdrop { background: rgba(10, 14, 18, .45); }
+.dlg { padding: 18px; display: grid; gap: 12px; }
+.dlg ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; }
+.dlg input[type="password"], .dlg input[type="text"], .dlg input[type="time"] { width: 100%; border: 1px solid var(--line-strong); border-radius: 10px; padding: 9px 10px; font: inherit; background: var(--surface); color: var(--ink); }
+.dlg .actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+.times { display: grid; gap: 8px; }
+.times label { font-size: 14px; font-weight: 650; display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 10px; }
+.times input { min-width: 0; }
+.opt { display: flex; gap: 10px; align-items: center; font-size: 14px; padding: 4px 0; }
+.err-text { color: var(--warn); font-size: 13.5px; min-height: 1em; }
+#confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 70; }
+#confetti i { position: absolute; top: -16px; width: 9px; height: 15px; border-radius: 2px; animation: fall linear forwards; }
+@keyframes fall { to { transform: translate3d(var(--dx, 0), 110vh, 0) rotate(760deg); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top" id="top"></header>
+  <div id="banner"></div>
+  <main id="app" aria-live="polite"></main>
+  <footer id="foot"></footer>
+</div>
+<div id="confetti" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" hidden></div>
+
+<dialog id="connect">
+  <form method="dialog" class="dlg" id="connect-form">
+    <h2>Update this page from this device</h2>
+    <p class="small muted" style="margin:0">Checking items off saves them to <b id="repo-name">your repository</b> on GitHub, so everyone with the link sees them. This needs a GitHub token that can write to that one repository. It stays on this device.</p>
+    <ol>
+      <li>On GitHub: <b>Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</b>.</li>
+      <li>Expiration: pick a date after Dec 18, 2026. Repository access: <b>Only select repositories</b>, then this repository.</li>
+      <li>Repository permissions: <b>Contents → Read and write</b>. Generate, then copy the token.</li>
+    </ol>
+    <input type="password" id="token-input" autocomplete="off" spellcheck="false" placeholder="github_pat_…" aria-label="GitHub token">
+    <div class="err-text" id="connect-err"></div>
+    <div class="actions">
+      <button class="btn" value="cancel" type="button" id="connect-cancel">Cancel</button>
+      <button class="btn primary" type="submit" id="connect-go">Connect</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="settings">
+  <form method="dialog" class="dlg" id="settings-form">
+    <h2>Settings</h2>
+    <div>
+      <h3>Session start times</h3>
+      <p class="small muted" style="margin:2px 0 8px">Shown on the page, so everyone knows when you're studying.</p>
+      <div class="times">
+        <label>Morning <input type="time" id="t-Morning"></label>
+        <label>Afternoon <input type="time" id="t-Afternoon"></label>
+        <label>Evening <input type="time" id="t-Evening"></label>
+      </div>
+    </div>
+    <div>
+      <h3>Courses you no longer need</h3>
+      <p class="small muted" style="margin:2px 0 6px">Tick one only after UMPI confirms it's covered. Its items disappear from the page.</p>
+      <div id="skip-list"></div>
+    </div>
+    <div class="actions">
+      <button class="btn" type="button" id="forget">Disconnect this device</button>
+      <span style="flex:1"></span>
+      <button class="btn" value="cancel" type="button" id="settings-cancel">Cancel</button>
+      <button class="btn primary" type="submit">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+  // ------------------------------------------------------------------ settings you can change
+  var CONFIG = {
+    name: "Emmanuel",
+    timeZone: "America/Los_Angeles",
+    owner: "",              // GitHub user name; blank = read it from the github.io address
+    repo: "",               // repository name; blank = read it from the address
+    dataBranch: "progress", // progress lives on its own branch, so page updates never overwrite it
+    dataPath: "progress.json",
+    pollSeconds: 150
+  };
+  var PLAN = {"meta":{"start":"2026-10-01","octEnd":"2026-10-24","fall2":"2026-10-26","end":"2026-12-18","built":"2026-10-03"},"courses":[{"id":"macro","short":"Macro","title":"Macroeconomics","platform":"Sophia","group":"oct","later":false,"optional":false,"start":"2026-10-01","end":"2026-10-03","graded":"2026-10-03","units":["macro-u1","macro-m1","macro-u2","macro-m2","macro-u3","macro-m3","macro-u4","macro-m4","macro-final"]},{"id":"math101","short":"Math 101","title":"Math 101: College Algebra","platform":"Study.com","group":"oct","later":false,"optional":true,"start":"2026-10-07","end":"2026-10-10","graded":"2026-10-10","units":["math101-ch1","math101-ch2","math101-ch3","math101-ch4","math101-ch5","math101-ch6","math101-ch7","math101-ch8","math101-ch9","math101-ch10","math101-ch11","math101-ch12","math101-final"]},{"id":"bus315","short":"Bus 315","title":"Business 315: Logistics & Supply Chain Management","platform":"Study.com","group":"oct","later":false,"optional":false,"start":"2026-10-09","end":"2026-10-15","graded":"2026-10-17","units":["bus315-ch1","bus315-ch2","bus315-ch3","bus315-ch4","bus315-ch5","bus315-ch6","bus315-ch7","bus315-ch8","bus315-ch9","bus315-a1-s1","bus315-final","bus315-a1-s2","bus315-a2-s1","bus315-a2-s2"]},{"id":"bus327","short":"Bus 327","title":"Business 327: Retail Strategy","platform":"Study.com","group":"oct","later":false,"optional":false,"start":"2026-10-05","end":"2026-10-12","graded":"2026-10-14","units":["bus327-ch1","bus327-ch2","bus327-ch3","bus327-ch4","bus327-ch5","bus327-ch6","bus327-ch7","bus327-ch8","bus327-ch9","bus327-ch10","bus327-ch11","bus327-a1-s1","bus327-a1-s2","bus327-a2-s1","bus327-a2-s2","bus327-final"]},{"id":"psy310","short":"Psych 310","title":"Psychology 310: Psychology of Personality","platform":"Study.com","group":"oct","later":false,"optional":false,"start":"2026-10-10","end":"2026-10-17","graded":"2026-10-19","units":["psy310-ch1","psy310-ch2","psy310-ch3","psy310-ch4","psy310-ch5","psy310-ch6","psy310-ch7","psy310-ch8","psy310-ch9","psy310-ch10","psy310-ch11","psy310-final","psy310-a1-s1","psy310-a1-s2"]},{"id":"soc305","short":"Soc 305","title":"Sociology 305: Sociology of Work","platform":"Study.com","group":"oct","later":false,"optional":false,"start":"2026-10-15","end":"2026-10-19","graded":"2026-10-21","units":["soc305-ch1","soc305-ch2","soc305-ch3","soc305-ch4","soc305-ch5","soc305-ch6","soc305-ch7","soc305-ch8","soc305-ch9","soc305-ch10","soc305-a2-s1","soc305-final","soc305-a2-s2","soc305-a1-s1","soc305-a1-s2"]},{"id":"law","short":"Bus Law","title":"Business Law","platform":"Sophia","group":"oct","later":false,"optional":false,"start":"2026-10-03","end":"2026-10-08","graded":"2026-10-08","units":["law-c1.1","law-c1.2","law-c1.3","law-c1.4","law-m1","law-c2.1","law-c2.2","law-c2.3","law-c2.4","law-m2","law-c3.1","law-c3.2","law-c3.3","law-ts2","law-m3","law-final"]},{"id":"ethics","short":"Ethics","title":"Business Ethics","platform":"Sophia","group":"oct","later":false,"optional":false,"start":"2026-10-05","end":"2026-10-12","graded":"2026-10-12","units":["ethics-c1.1","ethics-c1.2","ethics-c1.3","ethics-m1","ethics-c2.1","ethics-c2.2","ethics-c2.3","ethics-m2","ethics-c3.1","ethics-c3.2","ethics-c3.3","ethics-m3","ethics-c4.1","ethics-c4.2","ethics-ts2","ethics-c4.3","ethics-m4","ethics-ts4","ethics-final"]},{"id":"agp","short":"Greek Phil","title":"Ancient Greek Philosophers","platform":"Sophia","group":"oct","later":true,"optional":true,"start":"2026-10-17","end":"2026-10-22","graded":"2026-10-27","units":["agp-tt1","agp-c1.1","agp-c1.2","agp-c1.3","agp-c1.4","agp-m1","agp-ts1","agp-ts12"]},{"id":"bio","short":"Bio 101L","title":"Biology 101L: Intro to Biology with Lab","platform":"Study.com","group":"oct","later":true,"optional":true,"start":"2026-10-19","end":"2026-10-24","graded":"2026-10-24","units":["bio-ch2","bio-ch3","bio-ch4","bio-lab1","bio-ch5","bio-ch6","bio-lab2","bio-ch7","bio-ch8","bio-lab3","bio-ch9","bio-ch10","bio-lab4","bio-ch11","bio-ch12","bio-lab5","bio-ch13","bio-ch14","bio-lab6","bio-ch15","bio-ch16","bio-ch17","bio-lab7","bio-ch18","bio-lab8","bio-ch19","bio-ch20","bio-lab9","bio-ch21","bio-ch22","bio-lab10","bio-ch23","bio-ch24","bio-final"]},{"id":"soc","short":"Intro Soc","title":"Introduction to Sociology","platform":"Sophia","group":"oct","later":true,"optional":true,"start":"2026-10-15","end":"2026-10-23","graded":"2026-10-28","units":["soc-c1.1","soc-c1.2","soc-c1.3","soc-m1","soc-c2.1","soc-c2.2","soc-c2.3","soc-m2","soc-c3.1","soc-c3.2","soc-c3.3","soc-ts1","soc-m3","soc-c4.1","soc-c4.2","soc-c4.3","soc-m4","soc-ts3"]},{"id":"u_bus240","short":"BUS 240","title":"Change Management","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-10-26","end":"2026-11-03","graded":"2026-11-03","units":["u-2026-10-26-0","u-2026-10-27-0","u-2026-10-28-0","u-2026-10-29-0","u-2026-10-30-0","u-2026-10-31-0","u-2026-11-02-0","u-2026-11-03-0"]},{"id":"u_bus315","short":"BUS 315","title":"Operations and Supply Chain Management","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-10-26","end":"2026-11-05","graded":"2026-11-05","units":["u-2026-10-26-1","u-2026-10-27-1","u-2026-10-28-1","u-2026-10-29-1","u-2026-10-30-1","u-2026-10-31-1","u-2026-11-02-1","u-2026-11-03-1","u-2026-11-04-1","u-2026-11-05-1"]},{"id":"u_bus218","short":"BUS 218","title":"Materials and Inventory Management","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-11-04","end":"2026-11-16","graded":"2026-11-16","units":["u-2026-11-04-0","u-2026-11-05-0","u-2026-11-06-0","u-2026-11-07-0","u-2026-11-09-0","u-2026-11-10-0","u-2026-11-11-0","u-2026-11-12-0","u-2026-11-13-0","u-2026-11-14-0","u-2026-11-16-0"]},{"id":"u_bus321","short":"BUS 321","title":"Human Resource Management","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-11-06","end":"2026-11-18","graded":"2026-11-18","units":["u-2026-11-06-1","u-2026-11-07-1","u-2026-11-09-1","u-2026-11-10-1","u-2026-11-11-1","u-2026-11-12-1","u-2026-11-13-1","u-2026-11-14-1","u-2026-11-16-1","u-2026-11-17-1","u-2026-11-18-1"]},{"id":"u_bus412","short":"BUS 412","title":"Supplier Relationship Management","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-11-17","end":"2026-11-27","graded":"2026-11-27","units":["u-2026-11-17-0","u-2026-11-18-0","u-2026-11-19-0","u-2026-11-20-0","u-2026-11-21-0","u-2026-11-23-0","u-2026-11-24-0","u-2026-11-25-0","u-2026-11-27-0"]},{"id":"u_bus231","short":"BUS 231","title":"Quality Management","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-11-19","end":"2026-12-02","graded":"2026-12-02","units":["u-2026-11-19-1","u-2026-11-20-1","u-2026-11-21-1","u-2026-11-23-1","u-2026-11-24-1","u-2026-11-25-1","u-2026-11-27-1","u-2026-11-28-1","u-2026-11-30-1","u-2026-12-01-1","u-2026-12-02-1"]},{"id":"u_bus203","short":"BUS 203","title":"Introduction to Artificial Intelligence","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-11-27","end":"2026-12-15","graded":"2026-12-15","units":["u-2026-11-27-2","u-2026-11-28-2","u-2026-11-30-2","u-2026-12-01-2","u-2026-12-02-2","u-2026-12-03-2","u-2026-12-04-2","u-2026-12-05-2","u-2026-12-07-2","u-2026-12-08-2","u-2026-12-09-2","u-2026-12-10-2","u-2026-12-11-2","u-2026-12-12-2","u-2026-12-14-2","u-2026-12-15-2"]},{"id":"u_bus335","short":"BUS 335","title":"Organizational Behavior","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-11-28","end":"2026-12-05","graded":"2026-12-05","units":["u-2026-11-28-0","u-2026-11-30-0","u-2026-12-01-0","u-2026-12-02-0","u-2026-12-03-0","u-2026-12-04-0","u-2026-12-05-0"]},{"id":"u_bus441","short":"BUS 441","title":"Business Innovations","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-12-03","end":"2026-12-15","graded":"2026-12-15","units":["u-2026-12-03-1","u-2026-12-04-1","u-2026-12-05-1","u-2026-12-07-1","u-2026-12-08-1","u-2026-12-09-1","u-2026-12-10-1","u-2026-12-11-1","u-2026-12-12-1","u-2026-12-14-1","u-2026-12-15-1"]},{"id":"u_glo4","short":"ENG 211","title":"Introduction to Creative Writing","platform":"UMPI","group":"umpi","later":false,"optional":false,"start":"2026-12-07","end":"2026-12-15","graded":"2026-12-15","units":["u-2026-12-07-0","u-2026-12-08-0","u-2026-12-09-0","u-2026-12-10-0","u-2026-12-11-0","u-2026-12-12-0","u-2026-12-14-0","u-2026-12-15-0"]},{"id":"e_hist103","short":"Hist 103","title":"History 103: US History I","platform":"Study.com","group":"extra","later":false,"optional":true,"start":"2026-10-26","end":"2026-11-04","graded":"2026-11-04","units":["u-2026-10-26-2","u-2026-10-27-2","u-2026-10-28-2","u-2026-10-29-2","u-2026-10-30-2","u-2026-10-31-2","u-2026-11-02-2","u-2026-11-03-2","u-2026-11-04-2"]},{"id":"e_hist101","short":"Hist 101","title":"History 101: Western Civilization I","platform":"Study.com","group":"extra","later":false,"optional":true,"start":"2026-11-05","end":"2026-11-14","graded":"2026-11-14","units":["u-2026-11-05-2","u-2026-11-06-2","u-2026-11-07-2","u-2026-11-09-2","u-2026-11-10-2","u-2026-11-11-2","u-2026-11-12-2","u-2026-11-13-2","u-2026-11-14-2"]},{"id":"e_hist104","short":"Hist 104","title":"History 104: US History II","platform":"Study.com","group":"extra","later":false,"optional":true,"start":"2026-11-16","end":"2026-11-25","graded":"2026-11-25","units":["u-2026-11-16-2","u-2026-11-17-2","u-2026-11-18-2","u-2026-11-19-2","u-2026-11-20-2","u-2026-11-21-2","u-2026-11-23-2","u-2026-11-24-2","u-2026-11-25-2"]}],"items":[{"id":"macro-u1","course":"macro","label":"Unit 1 challenges","min":45,"date":"2026-10-01","slot":"Evening","kind":"challenge"},{"id":"macro-m1","course":"macro","label":"Milestone 1","min":35,"date":"2026-10-01","slot":"Evening","kind":"milestone"},{"id":"macro-u2","course":"macro","label":"Unit 2 challenges","min":45,"date":"2026-10-02","slot":"Evening","kind":"challenge"},{"id":"macro-m2","course":"macro","label":"Milestone 2","min":35,"date":"2026-10-02","slot":"Evening","kind":"milestone"},{"id":"macro-u3","course":"macro","label":"Unit 3 challenges","min":30,"date":"2026-10-03","slot":"Afternoon","kind":"challenge"},{"id":"macro-m3","course":"macro","label":"Milestone 3","min":35,"date":"2026-10-03","slot":"Afternoon","kind":"milestone"},{"id":"macro-u4","course":"macro","label":"Unit 4 challenges","min":30,"date":"2026-10-03","slot":"Afternoon","kind":"challenge"},{"id":"macro-m4","course":"macro","label":"Milestone 4","min":35,"date":"2026-10-03","slot":"Afternoon","kind":"milestone"},{"id":"macro-final","course":"macro","label":"Final Milestone","min":45,"date":"2026-10-03","slot":"Afternoon","kind":"milestone"},{"id":"math101-ch1","course":"math101","label":"Ch 1 · Foundations of Linear Equations","min":45,"date":"2026-10-07","slot":"Afternoon","kind":"test"},{"id":"math101-ch2","course":"math101","label":"Ch 2 · Matrices and Absolute Value","min":40,"date":"2026-10-07","slot":"Evening","kind":"test"},{"id":"math101-ch3","course":"math101","label":"Ch 3 · Inequalities","min":40,"date":"2026-10-07","slot":"Evening","kind":"test"},{"id":"math101-ch4","course":"math101","label":"Ch 4 · Factoring with FOIL, Graphing Parabolas and Solving Quadratics","min":45,"date":"2026-10-08","slot":"Afternoon","kind":"test"},{"id":"math101-ch5","course":"math101","label":"Ch 5 · Complex Numbers","min":35,"date":"2026-10-08","slot":"Afternoon","kind":"test"},{"id":"math101-ch6","course":"math101","label":"Ch 6 · Exponents and Polynomials","min":50,"date":"2026-10-08","slot":"Afternoon","kind":"test"},{"id":"math101-ch7","course":"math101","label":"Ch 7 · Functions","min":40,"date":"2026-10-08","slot":"Afternoon","kind":"test"},{"id":"math101-ch8","course":"math101","label":"Ch 8 · Rational Expressions","min":40,"date":"2026-10-08","slot":"Evening","kind":"test"},{"id":"math101-ch9","course":"math101","label":"Ch 9 · Radical Expressions & Functions","min":40,"date":"2026-10-08","slot":"Evening","kind":"test"},{"id":"math101-ch10","course":"math101","label":"Ch 10 · Exponentials and Logarithms","min":40,"date":"2026-10-09","slot":"Morning","kind":"test"},{"id":"math101-ch11","course":"math101","label":"Ch 11 · Probability Mechanics","min":40,"date":"2026-10-09","slot":"Afternoon","kind":"test"},{"id":"math101-ch12","course":"math101","label":"Ch 12 · Sequences and Series","min":40,"date":"2026-10-09","slot":"Afternoon","kind":"test"},{"id":"math101-final","course":"math101","label":"Final exam","min":120,"date":"2026-10-10","slot":"Afternoon","kind":"final"},{"id":"bus315-ch1","course":"bus315","label":"Ch 1 · Introduction to Supply Chain Management","min":30,"date":"2026-10-09","slot":"Afternoon","kind":"test"},{"id":"bus315-ch2","course":"bus315","label":"Ch 2 · Decision Making Process of Supply Chain Management","min":25,"date":"2026-10-09","slot":"Afternoon","kind":"test"},{"id":"bus315-ch3","course":"bus315","label":"Ch 3 · Quality in Operations & SCM","min":35,"date":"2026-10-09","slot":"Afternoon","kind":"test"},{"id":"bus315-ch4","course":"bus315","label":"Ch 4 · Overview of Supply Chain Strategy & Design","min":30,"date":"2026-10-09","slot":"Evening","kind":"test"},{"id":"bus315-ch5","course":"bus315","label":"Ch 5 · International Supply Chain Procurement & Distribution","min":30,"date":"2026-10-09","slot":"Evening","kind":"test"},{"id":"bus315-ch6","course":"bus315","label":"Ch 6 · Inventory Management for SCM","min":30,"date":"2026-10-10","slot":"Morning","kind":"test"},{"id":"bus315-ch7","course":"bus315","label":"Ch 7 · Sustainability & Lean Management Systems in SCM","min":25,"date":"2026-10-10","slot":"Morning","kind":"test"},{"id":"bus315-ch8","course":"bus315","label":"Ch 8 · Product Distribution for SCM","min":30,"date":"2026-10-10","slot":"Afternoon","kind":"test"},{"id":"bus315-ch9","course":"bus315","label":"Ch 9 · Measuring & Analyzing Performance of Supply Chain","min":25,"date":"2026-10-10","slot":"Afternoon","kind":"test"},{"id":"bus315-a1-s1","course":"bus315","label":"Assignment 1 · research + draft","min":150,"date":"2026-10-13","slot":"Morning","kind":"write"},{"id":"bus315-a1-s2","course":"bus315","label":"Assignment 1 · visual, APA, submit as PDF","min":120,"date":"2026-10-14","slot":"Morning","kind":"write"},{"id":"bus315-a2-s1","course":"bus315","label":"Assignment 2 · research + draft","min":120,"date":"2026-10-15","slot":"Morning","kind":"write"},{"id":"bus315-a2-s2","course":"bus315","label":"Assignment 2 · APA, submit","min":120,"date":"2026-10-15","slot":"Afternoon","kind":"write"},{"id":"bus315-final","course":"bus315","label":"Final exam","min":120,"date":"2026-10-13","slot":"Afternoon","kind":"final"},{"id":"bus327-ch1","course":"bus327","label":"Ch 1 · Introduction to Retail Strategy","min":30,"date":"2026-10-05","slot":"Afternoon","kind":"test"},{"id":"bus327-ch2","course":"bus327","label":"Ch 2 · Understanding Retail Opportunities","min":30,"date":"2026-10-06","slot":"Evening","kind":"test"},{"id":"bus327-ch3","course":"bus327","label":"Ch 3 · Market Knowledge & Forecasting","min":30,"date":"2026-10-06","slot":"Evening","kind":"test"},{"id":"bus327-ch4","course":"bus327","label":"Ch 4 · Retail Strategy & Attractive Market Segments","min":30,"date":"2026-10-06","slot":"Evening","kind":"test"},{"id":"bus327-ch5","course":"bus327","label":"Ch 5 · Creating a Competitive Advantage","min":30,"date":"2026-10-07","slot":"Morning","kind":"test"},{"id":"bus327-ch6","course":"bus327","label":"Ch 6 · New Market Entry Strategies","min":30,"date":"2026-10-07","slot":"Morning","kind":"test"},{"id":"bus327-ch7","course":"bus327","label":"Ch 7 · Growth, Mature & Declining Markets","min":30,"date":"2026-10-07","slot":"Morning","kind":"test"},{"id":"bus327-ch8","course":"bus327","label":"Ch 8 · Marketing Strategies & Digital Marketing","min":30,"date":"2026-10-07","slot":"Afternoon","kind":"test"},{"id":"bus327-ch9","course":"bus327","label":"Ch 9 · Retail Strategy & Consumer Behavior","min":30,"date":"2026-10-07","slot":"Afternoon","kind":"test"},{"id":"bus327-ch10","course":"bus327","label":"Ch 10 · Strategic Retail Planning","min":30,"date":"2026-10-07","slot":"Afternoon","kind":"test"},{"id":"bus327-ch11","course":"bus327","label":"Ch 11 · Evaluating Retail Performance","min":30,"date":"2026-10-07","slot":"Afternoon","kind":"test"},{"id":"bus327-a1-s1","course":"bus327","label":"Assignment 1 · plan + draft","min":150,"date":"2026-10-08","slot":"Morning","kind":"write"},{"id":"bus327-a1-s2","course":"bus327","label":"Assignment 1 · finish, APA, submit","min":150,"date":"2026-10-09","slot":"Morning","kind":"write"},{"id":"bus327-a2-s1","course":"bus327","label":"Assignment 2 · build 10–20 slides","min":150,"date":"2026-10-10","slot":"Morning","kind":"write"},{"id":"bus327-a2-s2","course":"bus327","label":"Assignment 2 · record narration, submit","min":120,"date":"2026-10-12","slot":"Morning","kind":"write"},{"id":"bus327-final","course":"bus327","label":"Final exam","min":120,"date":"2026-10-12","slot":"Afternoon","kind":"final"},{"id":"psy310-ch1","course":"psy310","label":"Ch 1 · Introduction to Personality Psychology","min":35,"date":"2026-10-10","slot":"Evening","kind":"test"},{"id":"psy310-ch2","course":"psy310","label":"Ch 2 · Personality Research & Assessment","min":45,"date":"2026-10-10","slot":"Evening","kind":"test"},{"id":"psy310-ch3","course":"psy310","label":"Ch 3 · Psychoanalytic Theories of Personality","min":40,"date":"2026-10-12","slot":"Afternoon","kind":"test"},{"id":"psy310-ch4","course":"psy310","label":"Ch 4 · Adler & Jung & Personality Theory","min":35,"date":"2026-10-12","slot":"Evening","kind":"test"},{"id":"psy310-ch5","course":"psy310","label":"Ch 5 · Neo-Analytic & Ego Approaches to Identity","min":30,"date":"2026-10-12","slot":"Evening","kind":"test"},{"id":"psy310-ch6","course":"psy310","label":"Ch 6 · Biological Aspects of Personality","min":35,"date":"2026-10-13","slot":"Morning","kind":"test"},{"id":"psy310-ch7","course":"psy310","label":"Ch 7 · Psychodynamic Theories & Theorists","min":30,"date":"2026-10-13","slot":"Afternoon","kind":"test"},{"id":"psy310-ch8","course":"psy310","label":"Ch 8 · Behavioral & Learning Aspects of Personality","min":35,"date":"2026-10-13","slot":"Evening","kind":"test"},{"id":"psy310-ch9","course":"psy310","label":"Ch 9 · Cognitive & Existential Theories of Personality","min":45,"date":"2026-10-14","slot":"Morning","kind":"test"},{"id":"psy310-ch10","course":"psy310","label":"Ch 10 · Humanistic Theories & Theorists","min":35,"date":"2026-10-14","slot":"Morning","kind":"test"},{"id":"psy310-ch11","course":"psy310","label":"Ch 11 · Trait Aspects of Personality","min":40,"date":"2026-10-14","slot":"Afternoon","kind":"test"},{"id":"psy310-a1-s1","course":"psy310","label":"Assignment 1 · research + first half","min":180,"date":"2026-10-16","slot":"Morning","kind":"write"},{"id":"psy310-a1-s2","course":"psy310","label":"Assignment 1 · second half, APA, submit","min":180,"date":"2026-10-17","slot":"Morning","kind":"write"},{"id":"psy310-final","course":"psy310","label":"Final exam","min":120,"date":"2026-10-14","slot":"Afternoon","kind":"final"},{"id":"soc305-ch1","course":"soc305","label":"Ch 1 · Historical Foundations of Work in Sociology","min":40,"date":"2026-10-15","slot":"Morning","kind":"test"},{"id":"soc305-ch2","course":"soc305","label":"Ch 2 · Conceptual Foundations of Work in Sociology","min":35,"date":"2026-10-15","slot":"Morning","kind":"test"},{"id":"soc305-ch3","course":"soc305","label":"Ch 3 · Social Occupations & Types of Labor","min":30,"date":"2026-10-15","slot":"Afternoon","kind":"test"},{"id":"soc305-ch4","course":"soc305","label":"Ch 4 · Workplace Organization & Management in Society","min":35,"date":"2026-10-15","slot":"Evening","kind":"test"},{"id":"soc305-ch5","course":"soc305","label":"Ch 5 · Work & Inequality in Society","min":40,"date":"2026-10-15","slot":"Evening","kind":"test"},{"id":"soc305-ch6","course":"soc305","label":"Ch 6 · Workplace Culture","min":30,"date":"2026-10-16","slot":"Morning","kind":"test"},{"id":"soc305-ch7","course":"soc305","label":"Ch 7 · Economic Trends & US Labor","min":30,"date":"2026-10-16","slot":"Afternoon","kind":"test"},{"id":"soc305-ch8","course":"soc305","label":"Ch 8 · Balancing Work & Family in Society","min":35,"date":"2026-10-16","slot":"Afternoon","kind":"test"},{"id":"soc305-ch9","course":"soc305","label":"Ch 9 · Technology & Work in Society","min":30,"date":"2026-10-16","slot":"Afternoon","kind":"test"},{"id":"soc305-ch10","course":"soc305","label":"Ch 10 · The Impact of Globalization on Work","min":35,"date":"2026-10-16","slot":"Afternoon","kind":"test"},{"id":"soc305-a1-s1","course":"soc305","label":"Assignment 1 · research + draft","min":150,"date":"2026-10-19","slot":"Morning","kind":"write"},{"id":"soc305-a1-s2","course":"soc305","label":"Assignment 1 · finish, APA, submit","min":120,"date":"2026-10-19","slot":"Afternoon","kind":"write"},{"id":"soc305-a2-s1","course":"soc305","label":"Assignment 2 · research + draft","min":90,"date":"2026-10-16","slot":"Evening","kind":"write"},{"id":"soc305-a2-s2","course":"soc305","label":"Assignment 2 · finish, APA, submit","min":90,"date":"2026-10-17","slot":"Evening","kind":"write"},{"id":"soc305-final","course":"soc305","label":"Final exam","min":120,"date":"2026-10-17","slot":"Afternoon","kind":"final"},{"id":"law-c1.1","course":"law","label":"Challenge 1.1: Foundations of Law","min":15,"date":"2026-10-03","slot":"Evening","kind":"challenge"},{"id":"law-c1.2","course":"law","label":"Challenge 1.2: Business Entities","min":15,"date":"2026-10-03","slot":"Evening","kind":"challenge"},{"id":"law-c1.3","course":"law","label":"Challenge 1.3: Judicial Process","min":15,"date":"2026-10-03","slot":"Evening","kind":"challenge"},{"id":"law-c1.4","course":"law","label":"Challenge 1.4: Ethical Perspectives","min":15,"date":"2026-10-03","slot":"Evening","kind":"challenge"},{"id":"law-m1","course":"law","label":"Milestone 1","min":40,"date":"2026-10-05","slot":"Morning","kind":"milestone"},{"id":"law-c2.1","course":"law","label":"Challenge 2.1: Contracts","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"law-c2.2","course":"law","label":"Challenge 2.2: Contract Remedies","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"law-c2.3","course":"law","label":"Challenge 2.3: Torts","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"law-c2.4","course":"law","label":"Challenge 2.4: Theories of Strict Tort Liability","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"law-m2","course":"law","label":"Milestone 2","min":40,"date":"2026-10-05","slot":"Morning","kind":"milestone"},{"id":"law-ts2","course":"law","label":"Touchstone 2: Did Jim and Laura Buy a Car?","min":150,"date":"2026-10-05","slot":"Afternoon","kind":"ts"},{"id":"law-c3.1","course":"law","label":"Challenge 3.1: Property Law","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"law-c3.2","course":"law","label":"Challenge 3.2: Types of Intellectual Property","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"law-c3.3","course":"law","label":"Challenge 3.3: Agency Law","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"law-m3","course":"law","label":"Milestone 3","min":35,"date":"2026-10-06","slot":"Morning","kind":"milestone"},{"id":"law-final","course":"law","label":"Final Milestone","min":45,"date":"2026-10-08","slot":"Morning","kind":"milestone"},{"id":"ethics-c1.1","course":"ethics","label":"Challenge 1.1: What Are Ethics?","min":15,"date":"2026-10-05","slot":"Morning","kind":"challenge"},{"id":"ethics-c1.2","course":"ethics","label":"Challenge 1.2: Ethical Perspectives Around the World","min":15,"date":"2026-10-05","slot":"Evening","kind":"challenge"},{"id":"ethics-c1.3","course":"ethics","label":"Challenge 1.3: Ethics in Business","min":15,"date":"2026-10-05","slot":"Evening","kind":"challenge"},{"id":"ethics-m1","course":"ethics","label":"Milestone 1","min":30,"date":"2026-10-05","slot":"Evening","kind":"milestone"},{"id":"ethics-c2.1","course":"ethics","label":"Challenge 2.1: Business Culture","min":15,"date":"2026-10-05","slot":"Evening","kind":"challenge"},{"id":"ethics-c2.2","course":"ethics","label":"Challenge 2.2: Employee Rights","min":15,"date":"2026-10-06","slot":"Morning","kind":"challenge"},{"id":"ethics-c2.3","course":"ethics","label":"Challenge 2.3: Fields With Special Ethical Concerns","min":15,"date":"2026-10-06","slot":"Morning","kind":"challenge"},{"id":"ethics-m2","course":"ethics","label":"Milestone 2","min":30,"date":"2026-10-06","slot":"Morning","kind":"milestone"},{"id":"ethics-ts2","course":"ethics","label":"Touchstone 2: Review a Code of Ethics","min":120,"date":"2026-10-06","slot":"Afternoon","kind":"ts"},{"id":"ethics-c3.1","course":"ethics","label":"Challenge 3.1: Colleagues, Investors, Customers & Community","min":15,"date":"2026-10-06","slot":"Morning","kind":"challenge"},{"id":"ethics-c3.2","course":"ethics","label":"Challenge 3.2: Other Stakeholders","min":15,"date":"2026-10-06","slot":"Morning","kind":"challenge"},{"id":"ethics-c3.3","course":"ethics","label":"Challenge 3.3: Ethical Conflicts","min":15,"date":"2026-10-06","slot":"Morning","kind":"challenge"},{"id":"ethics-m3","course":"ethics","label":"Milestone 3","min":30,"date":"2026-10-06","slot":"Morning","kind":"milestone"},{"id":"ethics-c4.1","course":"ethics","label":"Challenge 4.1: Diversity, Equity & Inclusion","min":15,"date":"2026-10-06","slot":"Morning","kind":"challenge"},{"id":"ethics-c4.2","course":"ethics","label":"Challenge 4.2: The Changing Workplace","min":15,"date":"2026-10-06","slot":"Morning","kind":"challenge"},{"id":"ethics-c4.3","course":"ethics","label":"Challenge 4.3: Case Studies","min":15,"date":"2026-10-06","slot":"Afternoon","kind":"challenge"},{"id":"ethics-m4","course":"ethics","label":"Milestone 4","min":30,"date":"2026-10-06","slot":"Afternoon","kind":"milestone"},{"id":"ethics-ts4","course":"ethics","label":"Touchstone 4: Write a Personal Code of Ethics","min":120,"date":"2026-10-07","slot":"Morning","kind":"ts"},{"id":"ethics-final","course":"ethics","label":"Final Milestone","min":45,"date":"2026-10-12","slot":"Morning","kind":"milestone"},{"id":"agp-tt1","course":"agp","label":"Touchstone Task 1: Defining Philosophy","min":30,"date":"2026-10-17","slot":"Morning","kind":"tt"},{"id":"agp-c1.1","course":"agp","label":"Challenge 1.1: Intro to Philosophy & the Pre-Socratics","min":15,"date":"2026-10-19","slot":"Evening","kind":"challenge"},{"id":"agp-c1.2","course":"agp","label":"Challenge 1.2: Socrates and Dialectic","min":15,"date":"2026-10-20","slot":"Evening","kind":"challenge"},{"id":"agp-c1.3","course":"agp","label":"Challenge 1.3: Plato and Aristotle","min":15,"date":"2026-10-21","slot":"Morning","kind":"challenge"},{"id":"agp-c1.4","course":"agp","label":"Challenge 1.4: Philosophy as a Way of Life","min":15,"date":"2026-10-21","slot":"Morning","kind":"challenge"},{"id":"agp-m1","course":"agp","label":"Milestone 1","min":35,"date":"2026-10-21","slot":"Evening","kind":"milestone"},{"id":"agp-ts1","course":"agp","label":"Touchstone 1.1: Philosophical Thinking essay","min":75,"date":"2026-10-22","slot":"Morning","kind":"ts"},{"id":"agp-ts12","course":"agp","label":"Touchstone 1.2: Philosophical Reflection essay","min":75,"date":"2026-10-22","slot":"Morning","kind":"ts"},{"id":"bio-ch2","course":"bio","label":"Ch 2 · Basic Terms & Skills in Biological Science","min":35,"date":"2026-10-19","slot":"Afternoon","kind":"test"},{"id":"bio-ch3","course":"bio","label":"Ch 3 · Molecular Biology","min":40,"date":"2026-10-20","slot":"Afternoon","kind":"test"},{"id":"bio-ch4","course":"bio","label":"Ch 4 · Organic Molecules & Heterotrophs","min":35,"date":"2026-10-20","slot":"Afternoon","kind":"test"},{"id":"bio-ch5","course":"bio","label":"Ch 5 · Enzyme Function, Interactions & Regulation","min":30,"date":"2026-10-20","slot":"Afternoon","kind":"test"},{"id":"bio-ch6","course":"bio","label":"Ch 6 · Cell Membrane Model, Components & Transport","min":40,"date":"2026-10-20","slot":"Afternoon","kind":"test"},{"id":"bio-ch7","course":"bio","label":"Ch 7 · Cell Structure & Organelles","min":40,"date":"2026-10-21","slot":"Morning","kind":"test"},{"id":"bio-ch8","course":"bio","label":"Ch 8 · Cellular Metabolism & Respiration","min":40,"date":"2026-10-21","slot":"Morning","kind":"test"},{"id":"bio-ch9","course":"bio","label":"Ch 9 · Cell Growth & Cell Division","min":50,"date":"2026-10-21","slot":"Afternoon","kind":"test"},{"id":"bio-ch10","course":"bio","label":"Ch 10 · Nucleotide Structure of DNA & RNA","min":35,"date":"2026-10-21","slot":"Afternoon","kind":"test"},{"id":"bio-ch11","course":"bio","label":"Ch 11 · DNA Replication","min":35,"date":"2026-10-21","slot":"Afternoon","kind":"test"},{"id":"bio-ch12","course":"bio","label":"Ch 12 · Transcription, Translation & Protein Synthesis","min":40,"date":"2026-10-21","slot":"Evening","kind":"test"},{"id":"bio-ch13","course":"bio","label":"Ch 13 · Genetic Mutations","min":40,"date":"2026-10-22","slot":"Afternoon","kind":"test"},{"id":"bio-ch14","course":"bio","label":"Ch 14 · Mendelian Genetics & Heredity","min":40,"date":"2026-10-22","slot":"Afternoon","kind":"test"},{"id":"bio-ch15","course":"bio","label":"Ch 15 · Genetic Engineering & DNA Sequencing","min":35,"date":"2026-10-22","slot":"Afternoon","kind":"test"},{"id":"bio-ch16","course":"bio","label":"Ch 16 · Microbiology: Cellular Structure & Processes","min":45,"date":"2026-10-22","slot":"Evening","kind":"test"},{"id":"bio-ch17","course":"bio","label":"Ch 17 · Human Biology: Body Systems","min":40,"date":"2026-10-22","slot":"Evening","kind":"test"},{"id":"bio-ch18","course":"bio","label":"Ch 18 · Human Biology: Nervous & Endocrine Systems","min":45,"date":"2026-10-23","slot":"Afternoon","kind":"test"},{"id":"bio-ch19","course":"bio","label":"Ch 19 · Reproduction, Development & Survival in Animals","min":30,"date":"2026-10-23","slot":"Afternoon","kind":"test"},{"id":"bio-ch20","course":"bio","label":"Ch 20 · Ecology & Community Ecology","min":45,"date":"2026-10-23","slot":"Evening","kind":"test"},{"id":"bio-ch21","course":"bio","label":"Ch 21 · Botany: Life Processes in Plants","min":50,"date":"2026-10-24","slot":"Morning","kind":"test"},{"id":"bio-ch22","course":"bio","label":"Ch 22 · Evolution & Natural Selection","min":40,"date":"2026-10-24","slot":"Morning","kind":"test"},{"id":"bio-ch23","course":"bio","label":"Ch 23 · Taxonomic Classification & Phylogeny","min":30,"date":"2026-10-24","slot":"Morning","kind":"test"},{"id":"bio-ch24","course":"bio","label":"Ch 24 · Earth's Timeline & Geological Evolution","min":30,"date":"2026-10-24","slot":"Morning","kind":"test"},{"id":"bio-lab1","course":"bio","label":"Labster lab 1: Lab Safety","min":30,"date":"2026-10-20","slot":"Afternoon","kind":"lab"},{"id":"bio-lab2","course":"bio","label":"Labster lab 2: Enzyme Kinetics","min":45,"date":"2026-10-21","slot":"Morning","kind":"lab"},{"id":"bio-lab3","course":"bio","label":"Labster lab 3: Protein Synthesis","min":45,"date":"2026-10-21","slot":"Morning","kind":"lab"},{"id":"bio-lab4","course":"bio","label":"Labster lab 4: Cellular Respiration: energy use during exercise","min":45,"date":"2026-10-21","slot":"Afternoon","kind":"lab"},{"id":"bio-lab5","course":"bio","label":"Labster lab 5: Pigment Extraction: photosynthesis to biofuel","min":45,"date":"2026-10-22","slot":"Morning","kind":"lab"},{"id":"bio-lab6","course":"bio","label":"Labster lab 6: Mitosis: a yew-tree compound in cancer therapy","min":45,"date":"2026-10-22","slot":"Afternoon","kind":"lab"},{"id":"bio-lab7","course":"bio","label":"Labster lab 7: Meiosis: how traits are inherited","min":45,"date":"2026-10-23","slot":"Afternoon","kind":"lab"},{"id":"bio-lab8","course":"bio","label":"Labster lab 8: Mendelian Inheritance: from genes to traits","min":45,"date":"2026-10-23","slot":"Afternoon","kind":"lab"},{"id":"bio-lab9","course":"bio","label":"Labster lab 9: Marine Biology: a massive fish death","min":45,"date":"2026-10-23","slot":"Evening","kind":"lab"},{"id":"bio-lab10","course":"bio","label":"Labster lab 10: Evolution: are you related to a sea monster?","min":45,"date":"2026-10-24","slot":"Morning","kind":"lab"},{"id":"bio-final","course":"bio","label":"Final exam","min":120,"date":"2026-10-24","slot":"Afternoon","kind":"final"},{"id":"soc-c1.1","course":"soc","label":"Challenge 1.1: What Is Sociology?","min":13,"date":"2026-10-15","slot":"Evening","kind":"challenge"},{"id":"soc-c1.2","course":"soc","label":"Challenge 1.2: Introduction to Theory","min":13,"date":"2026-10-16","slot":"Afternoon","kind":"challenge"},{"id":"soc-c1.3","course":"soc","label":"Challenge 1.3: Sociological Methods","min":13,"date":"2026-10-16","slot":"Afternoon","kind":"challenge"},{"id":"soc-m1","course":"soc","label":"Milestone 1","min":35,"date":"2026-10-17","slot":"Afternoon","kind":"milestone"},{"id":"soc-ts1","course":"soc","label":"Touchstone 1: Developing a Research Plan","min":150,"date":"2026-10-20","slot":"Morning","kind":"ts"},{"id":"soc-c2.1","course":"soc","label":"Challenge 2.1: Culture","min":13,"date":"2026-10-17","slot":"Afternoon","kind":"challenge"},{"id":"soc-c2.2","course":"soc","label":"Challenge 2.2: Social Structure","min":13,"date":"2026-10-19","slot":"Morning","kind":"challenge"},{"id":"soc-c2.3","course":"soc","label":"Challenge 2.3: Relationships","min":13,"date":"2026-10-19","slot":"Morning","kind":"challenge"},{"id":"soc-m2","course":"soc","label":"Milestone 2","min":35,"date":"2026-10-19","slot":"Evening","kind":"milestone"},{"id":"soc-c3.1","course":"soc","label":"Challenge 3.1: Race and Ethnicity","min":13,"date":"2026-10-19","slot":"Evening","kind":"challenge"},{"id":"soc-c3.2","course":"soc","label":"Challenge 3.2: Gender and Sexuality","min":13,"date":"2026-10-19","slot":"Evening","kind":"challenge"},{"id":"soc-c3.3","course":"soc","label":"Challenge 3.3: Perspective and Privilege","min":13,"date":"2026-10-19","slot":"Evening","kind":"challenge"},{"id":"soc-m3","course":"soc","label":"Milestone 3","min":35,"date":"2026-10-20","slot":"Morning","kind":"milestone"},{"id":"soc-ts3","course":"soc","label":"Touchstone 3: Presenting a Research Plan","min":180,"date":"2026-10-23","slot":"Morning","kind":"ts"},{"id":"soc-c4.1","course":"soc","label":"Challenge 4.1: Politics","min":13,"date":"2026-10-20","slot":"Morning","kind":"challenge"},{"id":"soc-c4.2","course":"soc","label":"Challenge 4.2: Deviance","min":13,"date":"2026-10-20","slot":"Evening","kind":"challenge"},{"id":"soc-c4.3","course":"soc","label":"Challenge 4.3: Economy","min":13,"date":"2026-10-20","slot":"Evening","kind":"challenge"},{"id":"soc-m4","course":"soc","label":"Milestone 4","min":35,"date":"2026-10-20","slot":"Evening","kind":"milestone"}],"days":[{"date":"2026-10-01","phase":"Setup","sessions":[{"slot":"Evening","items":["macro-u1","macro-m1"]}],"blocks":[],"info":[]},{"date":"2026-10-02","phase":"Phase 1 · required courses","sessions":[{"slot":"Evening","items":["macro-u2","macro-m2"]}],"blocks":[],"info":[]},{"date":"2026-10-03","phase":"Phase 1 · required courses","sessions":[{"slot":"Afternoon","items":["macro-u3","macro-m3","macro-u4","macro-m4","macro-final"]},{"slot":"Evening","items":["law-c1.1","law-c1.2","law-c1.3","law-c1.4"]}],"blocks":[],"info":[]},{"date":"2026-10-04","phase":"Catch-up day","sessions":[],"blocks":[],"info":[]},{"date":"2026-10-05","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["law-m1","law-c2.1","law-c2.2","law-c2.3","law-c2.4","law-m2","law-c3.1","law-c3.2","law-c3.3","ethics-c1.1"]},{"slot":"Afternoon","items":["law-ts2","bus327-ch1"]},{"slot":"Evening","items":["ethics-c1.2","ethics-c1.3","ethics-m1","ethics-c2.1"]}],"blocks":[],"info":[]},{"date":"2026-10-06","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["law-m3","ethics-c2.2","ethics-c2.3","ethics-m2","ethics-c3.1","ethics-c3.2","ethics-c3.3","ethics-m3","ethics-c4.1","ethics-c4.2"]},{"slot":"Afternoon","items":["ethics-ts2","ethics-c4.3","ethics-m4"]},{"slot":"Evening","items":["bus327-ch2","bus327-ch3","bus327-ch4"]}],"blocks":[],"info":[]},{"date":"2026-10-07","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["ethics-ts4","bus327-ch5","bus327-ch6","bus327-ch7"]},{"slot":"Afternoon","items":["bus327-ch8","bus327-ch9","bus327-ch10","bus327-ch11","math101-ch1"]},{"slot":"Evening","items":["math101-ch2","math101-ch3"]}],"blocks":[],"info":[]},{"date":"2026-10-08","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["bus327-a1-s1","law-final"]},{"slot":"Afternoon","items":["math101-ch4","math101-ch5","math101-ch6","math101-ch7"]},{"slot":"Evening","items":["math101-ch8","math101-ch9"]}],"blocks":[],"info":[]},{"date":"2026-10-09","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["bus327-a1-s2","math101-ch10"]},{"slot":"Afternoon","items":["math101-ch11","math101-ch12","bus315-ch1","bus315-ch2","bus315-ch3"]},{"slot":"Evening","items":["bus315-ch4","bus315-ch5"]}],"blocks":[],"info":[]},{"date":"2026-10-10","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["bus327-a2-s1","bus315-ch6","bus315-ch7"]},{"slot":"Afternoon","items":["math101-final","bus315-ch8","bus315-ch9"]},{"slot":"Evening","items":["psy310-ch1","psy310-ch2"]}],"blocks":[],"info":[]},{"date":"2026-10-11","phase":"Catch-up day","sessions":[],"blocks":[],"info":[]},{"date":"2026-10-12","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["bus327-a2-s2","ethics-final"]},{"slot":"Afternoon","items":["bus327-final","psy310-ch3"]},{"slot":"Evening","items":["psy310-ch4","psy310-ch5"]}],"blocks":[],"info":[]},{"date":"2026-10-13","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["bus315-a1-s1","psy310-ch6"]},{"slot":"Afternoon","items":["bus315-final","psy310-ch7"]},{"slot":"Evening","items":["psy310-ch8"]}],"blocks":[],"info":[]},{"date":"2026-10-14","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["bus315-a1-s2","psy310-ch9","psy310-ch10"]},{"slot":"Afternoon","items":["psy310-ch11","psy310-final"]}],"blocks":[],"info":[]},{"date":"2026-10-15","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["bus315-a2-s1","soc305-ch1","soc305-ch2"]},{"slot":"Afternoon","items":["bus315-a2-s2","soc305-ch3"]},{"slot":"Evening","items":["soc305-ch4","soc305-ch5","soc-c1.1"]}],"blocks":[],"info":[]},{"date":"2026-10-16","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["psy310-a1-s1","soc305-ch6"]},{"slot":"Afternoon","items":["soc305-ch7","soc305-ch8","soc305-ch9","soc305-ch10","soc-c1.2","soc-c1.3"]},{"slot":"Evening","items":["soc305-a2-s1"]}],"blocks":[],"info":[]},{"date":"2026-10-17","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["psy310-a1-s2","agp-tt1"]},{"slot":"Afternoon","items":["soc305-final","soc-m1","soc-c2.1"]},{"slot":"Evening","items":["soc305-a2-s2"]}],"blocks":[],"info":[]},{"date":"2026-10-18","phase":"Catch-up day","sessions":[],"blocks":[],"info":[]},{"date":"2026-10-19","phase":"Phase 1 · required courses","sessions":[{"slot":"Morning","items":["soc305-a1-s1","soc-c2.2","soc-c2.3"]},{"slot":"Afternoon","items":["soc305-a1-s2","bio-ch2"]},{"slot":"Evening","items":["soc-m2","soc-c3.1","soc-c3.2","soc-c3.3","agp-c1.1"]}],"blocks":[],"info":[]},{"date":"2026-10-20","phase":"Phase 2 · take-later courses","sessions":[{"slot":"Morning","items":["soc-ts1","soc-m3","soc-c4.1"]},{"slot":"Afternoon","items":["bio-ch3","bio-ch4","bio-lab1","bio-ch5","bio-ch6"]},{"slot":"Evening","items":["soc-c4.2","soc-c4.3","soc-m4","agp-c1.2"]}],"blocks":[],"info":[]},{"date":"2026-10-21","phase":"Phase 2 · take-later courses","sessions":[{"slot":"Morning","items":["bio-lab2","bio-ch7","bio-ch8","bio-lab3","agp-c1.3","agp-c1.4"]},{"slot":"Afternoon","items":["bio-ch9","bio-ch10","bio-lab4","bio-ch11"]},{"slot":"Evening","items":["agp-m1","bio-ch12"]}],"blocks":[],"info":[]},{"date":"2026-10-22","phase":"Phase 2 · take-later courses","sessions":[{"slot":"Morning","items":["agp-ts1","agp-ts12","bio-lab5"]},{"slot":"Afternoon","items":["bio-ch13","bio-ch14","bio-lab6","bio-ch15"]},{"slot":"Evening","items":["bio-ch16","bio-ch17"]}],"blocks":[],"info":[]},{"date":"2026-10-23","phase":"Phase 2 · take-later courses","sessions":[{"slot":"Morning","items":["soc-ts3"]},{"slot":"Afternoon","items":["bio-lab7","bio-ch18","bio-lab8","bio-ch19"]},{"slot":"Evening","items":["bio-ch20","bio-lab9"]}],"blocks":[],"info":[]},{"date":"2026-10-24","phase":"Phase 2 · take-later courses","sessions":[{"slot":"Morning","items":["bio-ch21","bio-ch22","bio-lab10","bio-ch23","bio-ch24"]},{"slot":"Afternoon","items":["bio-final"]}],"blocks":[],"info":[]},{"date":"2026-10-25","phase":"Catch-up day","sessions":[],"blocks":[],"info":[]},{"date":"2026-10-26","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-10-26-0","slot":"Morning","course":"u_bus240","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-10-26","finishes":false},{"id":"u-2026-10-26-1","slot":"Afternoon","course":"u_bus315","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-10-26","finishes":false},{"id":"u-2026-10-26-2","slot":"Evening","course":"e_hist103","text":"Open the course; read the assignment prompt; first chapter tests","date":"2026-10-26","finishes":false}],"info":[]},{"date":"2026-10-27","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-10-27-0","slot":"Morning","course":"u_bus240","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-10-27","finishes":false},{"id":"u-2026-10-27-1","slot":"Afternoon","course":"u_bus315","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-10-27","finishes":false},{"id":"u-2026-10-27-2","slot":"Evening","course":"e_hist103","text":"Chapter tests, first third","date":"2026-10-27","finishes":false}],"info":[]},{"date":"2026-10-28","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-10-28-0","slot":"Morning","course":"u_bus240","text":"Milestones: assignments, case studies or discussions","date":"2026-10-28","finishes":false},{"id":"u-2026-10-28-1","slot":"Afternoon","course":"u_bus315","text":"Milestones: assignments, case studies or discussions","date":"2026-10-28","finishes":false},{"id":"u-2026-10-28-2","slot":"Evening","course":"e_hist103","text":"Chapter tests, middle third; draft the assignment","date":"2026-10-28","finishes":false}],"info":[]},{"date":"2026-10-29","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-10-29-0","slot":"Morning","course":"u_bus240","text":"Modules + milestones, continue","date":"2026-10-29","finishes":false},{"id":"u-2026-10-29-1","slot":"Afternoon","course":"u_bus315","text":"Modules + milestones, continue","date":"2026-10-29","finishes":false},{"id":"u-2026-10-29-2","slot":"Evening","course":"e_hist103","text":"Chapter tests, continue","date":"2026-10-29","finishes":false}],"info":[]},{"date":"2026-10-30","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-10-30-0","slot":"Morning","course":"u_bus240","text":"Draft the final; submit the practice draft (feedback can take several business days)","date":"2026-10-30","finishes":false},{"id":"u-2026-10-30-1","slot":"Afternoon","course":"u_bus315","text":"Modules + milestones, continue","date":"2026-10-30","finishes":false},{"id":"u-2026-10-30-2","slot":"Evening","course":"e_hist103","text":"Chapter tests, continue","date":"2026-10-30","finishes":false}],"info":[]},{"date":"2026-10-31","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-10-31-0","slot":"Morning","course":"u_bus240","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-10-31","finishes":false},{"id":"u-2026-10-31-1","slot":"Afternoon","course":"u_bus315","text":"Modules + milestones, continue","date":"2026-10-31","finishes":false},{"id":"u-2026-10-31-2","slot":"Evening","course":"e_hist103","text":"Chapter tests, continue","date":"2026-10-31","finishes":false}],"info":[]},{"date":"2026-11-01","phase":"Rest day","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Weekly review: tick off the week, check grading on Study.com, Sophia and UMPI, look at next week"}]},{"date":"2026-11-02","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-02-0","slot":"Morning","course":"u_bus240","text":"Finish any open milestones; watch for the draft feedback","date":"2026-11-02","finishes":false},{"id":"u-2026-11-02-1","slot":"Afternoon","course":"u_bus315","text":"Draft the final; submit the practice draft (feedback can take several business days)","date":"2026-11-02","finishes":false},{"id":"u-2026-11-02-2","slot":"Evening","course":"e_hist103","text":"Chapter tests, continue","date":"2026-11-02","finishes":false}],"info":[]},{"date":"2026-11-03","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-03-0","slot":"Morning","course":"u_bus240","text":"Revise from feedback; submit the final; ask UMPI to open your next course (next: BUS 218)","date":"2026-11-03","finishes":true},{"id":"u-2026-11-03-1","slot":"Afternoon","course":"u_bus315","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-11-03","finishes":false},{"id":"u-2026-11-03-2","slot":"Evening","course":"e_hist103","text":"Last chapter tests; submit the assignment","date":"2026-11-03","finishes":false}],"info":[]},{"date":"2026-11-04","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-04-0","slot":"Morning","course":"u_bus218","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-11-04","finishes":false},{"id":"u-2026-11-04-1","slot":"Afternoon","course":"u_bus315","text":"Finish any open milestones; watch for the draft feedback","date":"2026-11-04","finishes":false},{"id":"u-2026-11-04-2","slot":"Evening","course":"e_hist103","text":"Final exam (50 questions, 90 min, open book) → once the assignment is graded, request the transcript → UMPI","date":"2026-11-04","finishes":true}],"info":[]},{"date":"2026-11-05","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-05-0","slot":"Morning","course":"u_bus218","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-11-05","finishes":false},{"id":"u-2026-11-05-1","slot":"Afternoon","course":"u_bus315","text":"Revise from feedback; submit the final; ask UMPI to open your next course","date":"2026-11-05","finishes":true},{"id":"u-2026-11-05-2","slot":"Evening","course":"e_hist101","text":"Open the course; read the assignment prompt; first chapter tests","date":"2026-11-05","finishes":false}],"info":[]},{"date":"2026-11-06","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-06-0","slot":"Morning","course":"u_bus218","text":"Milestones: assignments, case studies or discussions","date":"2026-11-06","finishes":false},{"id":"u-2026-11-06-1","slot":"Afternoon","course":"u_bus321","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-11-06","finishes":false},{"id":"u-2026-11-06-2","slot":"Evening","course":"e_hist101","text":"Chapter tests, first third","date":"2026-11-06","finishes":false}],"info":[]},{"date":"2026-11-07","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-07-0","slot":"Morning","course":"u_bus218","text":"Modules + milestones, continue","date":"2026-11-07","finishes":false},{"id":"u-2026-11-07-1","slot":"Afternoon","course":"u_bus321","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-11-07","finishes":false},{"id":"u-2026-11-07-2","slot":"Evening","course":"e_hist101","text":"Chapter tests, middle third; draft the assignment","date":"2026-11-07","finishes":false}],"info":[]},{"date":"2026-11-08","phase":"Rest day","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Weekly review: tick off the week, check grading on Study.com, Sophia and UMPI, look at next week"}]},{"date":"2026-11-09","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-09-0","slot":"Morning","course":"u_bus218","text":"Modules + milestones, continue","date":"2026-11-09","finishes":false},{"id":"u-2026-11-09-1","slot":"Afternoon","course":"u_bus321","text":"Milestones: assignments, case studies or discussions","date":"2026-11-09","finishes":false},{"id":"u-2026-11-09-2","slot":"Evening","course":"e_hist101","text":"Chapter tests, continue","date":"2026-11-09","finishes":false}],"info":[]},{"date":"2026-11-10","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-10-0","slot":"Morning","course":"u_bus218","text":"Modules + milestones, continue","date":"2026-11-10","finishes":false},{"id":"u-2026-11-10-1","slot":"Afternoon","course":"u_bus321","text":"Modules + milestones, continue","date":"2026-11-10","finishes":false},{"id":"u-2026-11-10-2","slot":"Evening","course":"e_hist101","text":"Chapter tests, continue","date":"2026-11-10","finishes":false}],"info":[]},{"date":"2026-11-11","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-11-0","slot":"Morning","course":"u_bus218","text":"Modules + milestones, continue","date":"2026-11-11","finishes":false},{"id":"u-2026-11-11-1","slot":"Afternoon","course":"u_bus321","text":"Modules + milestones, continue","date":"2026-11-11","finishes":false},{"id":"u-2026-11-11-2","slot":"Evening","course":"e_hist101","text":"Chapter tests, continue","date":"2026-11-11","finishes":false}],"info":[]},{"date":"2026-11-12","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-12-0","slot":"Morning","course":"u_bus218","text":"Draft the final (2023 students: a research paper with a PowerPoint); submit the practice draft (feedback can take several business days)","date":"2026-11-12","finishes":false},{"id":"u-2026-11-12-1","slot":"Afternoon","course":"u_bus321","text":"Modules + milestones, continue","date":"2026-11-12","finishes":false},{"id":"u-2026-11-12-2","slot":"Evening","course":"e_hist101","text":"Chapter tests, continue","date":"2026-11-12","finishes":false}],"info":[]},{"date":"2026-11-13","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-13-0","slot":"Morning","course":"u_bus218","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-11-13","finishes":false},{"id":"u-2026-11-13-1","slot":"Afternoon","course":"u_bus321","text":"Modules + milestones, continue","date":"2026-11-13","finishes":false},{"id":"u-2026-11-13-2","slot":"Evening","course":"e_hist101","text":"Last chapter tests; submit the assignment","date":"2026-11-13","finishes":false}],"info":[]},{"date":"2026-11-14","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-14-0","slot":"Morning","course":"u_bus218","text":"Finish any open milestones; watch for the draft feedback","date":"2026-11-14","finishes":false},{"id":"u-2026-11-14-1","slot":"Afternoon","course":"u_bus321","text":"Draft the final; submit the practice draft (feedback can take several business days)","date":"2026-11-14","finishes":false},{"id":"u-2026-11-14-2","slot":"Evening","course":"e_hist101","text":"Final exam (50 questions, 90 min, open book) → once the assignment is graded, request the transcript → UMPI","date":"2026-11-14","finishes":true}],"info":[]},{"date":"2026-11-15","phase":"Rest day","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Weekly review: tick off the week, check grading on Study.com, Sophia and UMPI, look at next week"}]},{"date":"2026-11-16","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-16-0","slot":"Morning","course":"u_bus218","text":"Revise from feedback; submit the final; ask UMPI to open your next course","date":"2026-11-16","finishes":true},{"id":"u-2026-11-16-1","slot":"Afternoon","course":"u_bus321","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-11-16","finishes":false},{"id":"u-2026-11-16-2","slot":"Evening","course":"e_hist104","text":"Open the course; read the assignment prompt; first chapter tests","date":"2026-11-16","finishes":false}],"info":[]},{"date":"2026-11-17","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-17-0","slot":"Morning","course":"u_bus412","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-11-17","finishes":false},{"id":"u-2026-11-17-1","slot":"Afternoon","course":"u_bus321","text":"Finish any open milestones; watch for the draft feedback","date":"2026-11-17","finishes":false},{"id":"u-2026-11-17-2","slot":"Evening","course":"e_hist104","text":"Chapter tests, first third","date":"2026-11-17","finishes":false}],"info":[]},{"date":"2026-11-18","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-18-0","slot":"Morning","course":"u_bus412","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-11-18","finishes":false},{"id":"u-2026-11-18-1","slot":"Afternoon","course":"u_bus321","text":"Revise from feedback; submit the final; ask UMPI to open your next course (next: BUS 231)","date":"2026-11-18","finishes":true},{"id":"u-2026-11-18-2","slot":"Evening","course":"e_hist104","text":"Chapter tests, middle third; draft the assignment","date":"2026-11-18","finishes":false}],"info":[]},{"date":"2026-11-19","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-19-0","slot":"Morning","course":"u_bus412","text":"Milestones: assignments, case studies or discussions","date":"2026-11-19","finishes":false},{"id":"u-2026-11-19-1","slot":"Afternoon","course":"u_bus231","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-11-19","finishes":false},{"id":"u-2026-11-19-2","slot":"Evening","course":"e_hist104","text":"Chapter tests, continue","date":"2026-11-19","finishes":false}],"info":[]},{"date":"2026-11-20","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-20-0","slot":"Morning","course":"u_bus412","text":"Modules + milestones, continue","date":"2026-11-20","finishes":false},{"id":"u-2026-11-20-1","slot":"Afternoon","course":"u_bus231","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-11-20","finishes":false},{"id":"u-2026-11-20-2","slot":"Evening","course":"e_hist104","text":"Chapter tests, continue","date":"2026-11-20","finishes":false}],"info":[]},{"date":"2026-11-21","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-21-0","slot":"Morning","course":"u_bus412","text":"Modules + milestones, continue","date":"2026-11-21","finishes":false},{"id":"u-2026-11-21-1","slot":"Afternoon","course":"u_bus231","text":"Milestones: assignments, case studies or discussions","date":"2026-11-21","finishes":false},{"id":"u-2026-11-21-2","slot":"Evening","course":"e_hist104","text":"Chapter tests, continue","date":"2026-11-21","finishes":false}],"info":[]},{"date":"2026-11-22","phase":"Rest day","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Weekly review: tick off the week, check grading on Study.com, Sophia and UMPI, look at next week"}]},{"date":"2026-11-23","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-23-0","slot":"Morning","course":"u_bus412","text":"Draft the final (2023 students: a research paper with a PowerPoint); submit the practice draft (feedback can take several business days)","date":"2026-11-23","finishes":false},{"id":"u-2026-11-23-1","slot":"Afternoon","course":"u_bus231","text":"Modules + milestones, continue","date":"2026-11-23","finishes":false},{"id":"u-2026-11-23-2","slot":"Evening","course":"e_hist104","text":"Chapter tests, continue","date":"2026-11-23","finishes":false}],"info":[]},{"date":"2026-11-24","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-24-0","slot":"Morning","course":"u_bus412","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-11-24","finishes":false},{"id":"u-2026-11-24-1","slot":"Afternoon","course":"u_bus231","text":"Modules + milestones, continue","date":"2026-11-24","finishes":false},{"id":"u-2026-11-24-2","slot":"Evening","course":"e_hist104","text":"Last chapter tests; submit the assignment","date":"2026-11-24","finishes":false}],"info":[]},{"date":"2026-11-25","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-25-0","slot":"Morning","course":"u_bus412","text":"Finish any open milestones; watch for the draft feedback","date":"2026-11-25","finishes":false},{"id":"u-2026-11-25-1","slot":"Afternoon","course":"u_bus231","text":"Modules + milestones, continue","date":"2026-11-25","finishes":false},{"id":"u-2026-11-25-2","slot":"Evening","course":"e_hist104","text":"Final exam (50 questions, 90 min, open book) → once the assignment is graded, request the transcript → UMPI; cancel Study.com before it renews Dec 1","date":"2026-11-25","finishes":true}],"info":[]},{"date":"2026-11-26","phase":"Thanksgiving","sessions":[],"blocks":[],"info":[]},{"date":"2026-11-27","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-27-0","slot":"Morning","course":"u_bus412","text":"Revise from feedback; submit the final; ask UMPI to open your next course (next: BUS 335)","date":"2026-11-27","finishes":true},{"id":"u-2026-11-27-1","slot":"Afternoon","course":"u_bus231","text":"Modules + milestones, continue","date":"2026-11-27","finishes":false},{"id":"u-2026-11-27-2","slot":"Evening","course":"u_bus203","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-11-27","finishes":false}],"info":[]},{"date":"2026-11-28","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-28-0","slot":"Morning","course":"u_bus335","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-11-28","finishes":false},{"id":"u-2026-11-28-1","slot":"Afternoon","course":"u_bus231","text":"Draft the final (2023 students: a research paper with a PowerPoint); submit the practice draft (feedback can take several business days)","date":"2026-11-28","finishes":false},{"id":"u-2026-11-28-2","slot":"Evening","course":"u_bus203","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-11-28","finishes":false}],"info":[]},{"date":"2026-11-29","phase":"Rest day","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Weekly review: tick off the week, check grading on Study.com, Sophia and UMPI, look at next week"}]},{"date":"2026-11-30","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-11-30-0","slot":"Morning","course":"u_bus335","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-11-30","finishes":false},{"id":"u-2026-11-30-1","slot":"Afternoon","course":"u_bus231","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-11-30","finishes":false},{"id":"u-2026-11-30-2","slot":"Evening","course":"u_bus203","text":"Milestones: assignments, case studies or discussions","date":"2026-11-30","finishes":false}],"info":[]},{"date":"2026-12-01","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-01-0","slot":"Morning","course":"u_bus335","text":"Milestones: assignments, case studies or discussions","date":"2026-12-01","finishes":false},{"id":"u-2026-12-01-1","slot":"Afternoon","course":"u_bus231","text":"Finish any open milestones; watch for the draft feedback","date":"2026-12-01","finishes":false},{"id":"u-2026-12-01-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-01","finishes":false}],"info":[]},{"date":"2026-12-02","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-02-0","slot":"Morning","course":"u_bus335","text":"Draft the final; submit the practice draft (feedback can take several business days)","date":"2026-12-02","finishes":false},{"id":"u-2026-12-02-1","slot":"Afternoon","course":"u_bus231","text":"Revise from feedback; submit the final; ask UMPI to open your next course","date":"2026-12-02","finishes":true},{"id":"u-2026-12-02-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-02","finishes":false}],"info":[]},{"date":"2026-12-03","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-03-0","slot":"Morning","course":"u_bus335","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-12-03","finishes":false},{"id":"u-2026-12-03-1","slot":"Afternoon","course":"u_bus441","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-12-03","finishes":false},{"id":"u-2026-12-03-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-03","finishes":false}],"info":[]},{"date":"2026-12-04","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-04-0","slot":"Morning","course":"u_bus335","text":"Finish any open milestones; watch for the draft feedback","date":"2026-12-04","finishes":false},{"id":"u-2026-12-04-1","slot":"Afternoon","course":"u_bus441","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-12-04","finishes":false},{"id":"u-2026-12-04-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-04","finishes":false}],"info":[]},{"date":"2026-12-05","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-05-0","slot":"Morning","course":"u_bus335","text":"Revise from feedback; submit the final; ask UMPI to open your next course","date":"2026-12-05","finishes":true},{"id":"u-2026-12-05-1","slot":"Afternoon","course":"u_bus441","text":"Milestones: assignments, case studies or discussions","date":"2026-12-05","finishes":false},{"id":"u-2026-12-05-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-05","finishes":false}],"info":[]},{"date":"2026-12-06","phase":"Rest day","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Weekly review: tick off the week, check grading on Study.com, Sophia and UMPI, look at next week"}]},{"date":"2026-12-07","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-07-0","slot":"Morning","course":"u_glo4","text":"Open the course; read the final assessment prompt and rubric first","date":"2026-12-07","finishes":false},{"id":"u-2026-12-07-1","slot":"Afternoon","course":"u_bus441","text":"Modules + milestones, continue","date":"2026-12-07","finishes":false},{"id":"u-2026-12-07-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-07","finishes":false}],"info":[]},{"date":"2026-12-08","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-08-0","slot":"Morning","course":"u_glo4","text":"Modules + knowledge checks (80% unlocks the final)","date":"2026-12-08","finishes":false},{"id":"u-2026-12-08-1","slot":"Afternoon","course":"u_bus441","text":"Modules + milestones, continue","date":"2026-12-08","finishes":false},{"id":"u-2026-12-08-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-08","finishes":false}],"info":[]},{"date":"2026-12-09","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-09-0","slot":"Morning","course":"u_glo4","text":"Milestones: assignments, case studies or discussions","date":"2026-12-09","finishes":false},{"id":"u-2026-12-09-1","slot":"Afternoon","course":"u_bus441","text":"Modules + milestones, continue","date":"2026-12-09","finishes":false},{"id":"u-2026-12-09-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-09","finishes":false}],"info":[]},{"date":"2026-12-10","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-10-0","slot":"Morning","course":"u_glo4","text":"Modules + milestones, continue","date":"2026-12-10","finishes":false},{"id":"u-2026-12-10-1","slot":"Afternoon","course":"u_bus441","text":"Modules + milestones, continue","date":"2026-12-10","finishes":false},{"id":"u-2026-12-10-2","slot":"Evening","course":"u_bus203","text":"Modules + milestones, continue","date":"2026-12-10","finishes":false}],"info":[]},{"date":"2026-12-11","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-11-0","slot":"Morning","course":"u_glo4","text":"Draft the final; submit the practice draft (feedback can take several business days)","date":"2026-12-11","finishes":false},{"id":"u-2026-12-11-1","slot":"Afternoon","course":"u_bus441","text":"Draft the final; submit the practice draft (feedback can take several business days)","date":"2026-12-11","finishes":false},{"id":"u-2026-12-11-2","slot":"Evening","course":"u_bus203","text":"Draft the final; submit the practice draft (feedback can take several business days)","date":"2026-12-11","finishes":false}],"info":[]},{"date":"2026-12-12","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-12-0","slot":"Morning","course":"u_glo4","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-12-12","finishes":false},{"id":"u-2026-12-12-1","slot":"Afternoon","course":"u_bus441","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-12-12","finishes":false},{"id":"u-2026-12-12-2","slot":"Evening","course":"u_bus203","text":"Milestones and knowledge checks while the draft is reviewed","date":"2026-12-12","finishes":false}],"info":[]},{"date":"2026-12-13","phase":"Rest day","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Weekly review: tick off the week, check grading on Study.com, Sophia and UMPI, look at next week"}]},{"date":"2026-12-14","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-14-0","slot":"Morning","course":"u_glo4","text":"Finish any open milestones; watch for the draft feedback","date":"2026-12-14","finishes":false},{"id":"u-2026-12-14-1","slot":"Afternoon","course":"u_bus441","text":"Finish any open milestones; watch for the draft feedback","date":"2026-12-14","finishes":false},{"id":"u-2026-12-14-2","slot":"Evening","course":"u_bus203","text":"Finish any open milestones; watch for the draft feedback","date":"2026-12-14","finishes":false}],"info":[]},{"date":"2026-12-15","phase":"UMPI Fall 2","sessions":[],"blocks":[{"id":"u-2026-12-15-0","slot":"Morning","course":"u_glo4","text":"Revise from feedback; submit the final (the last course in this slot)","date":"2026-12-15","finishes":true},{"id":"u-2026-12-15-1","slot":"Afternoon","course":"u_bus441","text":"Revise from feedback; submit the final (the last course in this slot)","date":"2026-12-15","finishes":true},{"id":"u-2026-12-15-2","slot":"Evening","course":"u_bus203","text":"Revise from feedback; submit the final (the last course in this slot)","date":"2026-12-15","finishes":true}],"info":[]},{"date":"2026-12-16","phase":"UMPI Fall 2","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Fix anything sent back for revision"},{"slot":"Afternoon","text":"Confirm every UMPI course shows a grade or is in grading"}]},{"date":"2026-12-17","phase":"UMPI Fall 2","sessions":[],"blocks":[],"info":[{"slot":"Morning","text":"Revisions only; nothing new"}]},{"date":"2026-12-18","phase":"UMPI Fall 2","sessions":[],"blocks":[],"info":[]}],"marks":[{"date":"2026-10-24","label":"October coursework done","kind":"oct"},{"date":"2026-10-26","label":"UMPI Fall 2 starts","kind":"date"},{"date":"2026-12-18","label":"Finish line: all coursework done","kind":"all"}]};
+  var SEED = {"version":1,"updated":null,"done":{"macro-u1":"2026-10-01","macro-m1":"2026-10-01","macro-u2":"2026-10-02","macro-m2":"2026-10-02"},"live":null,"notes":{},"skip":{},"times":{"Morning":"08:00","Afternoon":"13:00","Evening":"19:00"}};
+
+  // ------------------------------------------------------------------ indexes
+  var SLOTS = ["Morning", "Afternoon", "Evening"];
+  var SLOT_LEN = { Morning: "3½ h", Afternoon: "3 h", Evening: "1½ h" };
+  var KIND = { test: "Chapter test", final: "Final exam", write: "Writing", lab: "Lab", challenge: "Challenges", milestone: "Milestone", ts: "Touchstone", tt: "Short task" };
+  var ITEMS = {}, BLOCKS = {}, DAYMAP = {}, CMAP = {};
+  PLAN.items.forEach(function (i) { ITEMS[i.id] = i; });
+  PLAN.days.forEach(function (d) { DAYMAP[d.date] = d; d.blocks.forEach(function (b) { BLOCKS[b.id] = b; }); });
+  PLAN.courses.forEach(function (c) { CMAP[c.id] = c; });
+  var FIRST = PLAN.days[0].date, LAST = PLAN.days[PLAN.days.length - 1].date;
+  var DEFAULT_TIMES = (SEED && SEED.times) || { Morning: "08:00", Afternoon: "13:00", Evening: "19:00" };
+
+  // ------------------------------------------------------------------ storage (never required)
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+  function lsJSON(k) { try { return JSON.parse(lsGet(k) || "null"); } catch (e) { return null; } }
+
+  // ------------------------------------------------------------------ dates and times (in CONFIG.timeZone)
+  var TZ = CONFIG.timeZone;
+  var partsFmt = new Intl.DateTimeFormat("en-US", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+  function tzParts(d) { var o = {}; partsFmt.formatToParts(d).forEach(function (p) { o[p.type] = p.value; }); return o; }
+  function todayISO() { var p = tzParts(new Date()); return p.year + "-" + p.month + "-" + p.day; }
+  function nowMin() { var p = tzParts(new Date()); return (+p.hour % 24) * 60 + (+p.minute); }
+  function isoDay(v) { if (!v) return null; if (/^\d{4}-\d\d-\d\d$/.test(v)) return v; var p = tzParts(new Date(v)); return p.year + "-" + p.month + "-" + p.day; }
+  var clockFmt = new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
+  function clock(iso) { return clockFmt.format(new Date(iso)); }
+  function U(s) { return new Date(s + "T12:00:00Z"); }
+  function addDays(s, n) { var d = U(s); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+  function dow(s) { return U(s).getUTCDay(); }
+  function between(a, b) { return Math.round((U(b) - U(a)) / 864e5); }
+  var longFmt = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", weekday: "long", month: "long", day: "numeric" });
+  var shortFmt = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" });
+  var mdFmt = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric" });
+  function fLong(s) { return longFmt.format(U(s)); }
+  function fShort(s) { return shortFmt.format(U(s)); }
+  function fMD(s) { return mdFmt.format(U(s)); }
+  function hm(m) { var h = Math.floor(m / 60), r = m % 60; return h ? h + " h" + (r ? " " + r + " min" : "") : r + " min"; }
+  function hours(m) { var h = m / 60; return (h >= 10 ? Math.round(h) : Math.round(h * 10) / 10) + " h"; }
+  function toMin(t) { var m = /^(\d{1,2}):(\d{2})$/.exec(t || ""); return m ? (+m[1]) * 60 + (+m[2]) : null; }
+  function minLabel(m) { var h = Math.floor(m / 60) % 24, r = m % 60; return (h % 12 || 12) + ":" + (r < 10 ? "0" : "") + r + " " + (h < 12 ? "AM" : "PM"); }
+  function ago(iso) { var m = Math.round((Date.now() - Date.parse(iso)) / 60000); if (m < 1) return "just now"; if (m < 60) return m + " min ago"; var h = Math.round(m / 60); if (h < 24) return h + " h ago"; return fMD(isoDay(iso)); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+
+  // ------------------------------------------------------------------ progress model
+  function obj(v) { return v && typeof v === "object" && !Array.isArray(v) ? v : {}; }
+  function normalize(p) {
+    p = obj(p);
+    return { version: 1, updated: p.updated || null, done: Object.assign({}, obj(p.done)), live: p.live && p.live.slot && p.live.since ? p.live : null,
+      notes: Object.assign({}, obj(p.notes)), skip: Object.assign({}, obj(p.skip)), times: Object.assign({}, DEFAULT_TIMES, obj(p.times)) };
+  }
+  function applyOps(p, ops) {
+    p = normalize(JSON.parse(JSON.stringify(p)));
+    ops.forEach(function (o) {
+      if (o.t === "done") p.done[o.id] = o.at;
+      else if (o.t === "undo") delete p.done[o.id];
+      else if (o.t === "live") p.live = { slot: o.slot, since: o.since };
+      else if (o.t === "stop") p.live = null;
+      else if (o.t === "note") { if (o.text) p.notes[o.date] = { text: o.text, at: o.at }; else delete p.notes[o.date]; }
+      else if (o.t === "skip") { if (o.on) p.skip[o.cid] = true; else delete p.skip[o.cid]; }
+      else if (o.t === "times") p.times = Object.assign({}, p.times, o.times);
+    });
+    return p;
+  }
+
+  // ------------------------------------------------------------------ where the data lives
+  function detectRepo() {
+    if (CONFIG.owner && CONFIG.repo) return { owner: CONFIG.owner, repo: CONFIG.repo };
+    var m = /^([a-z0-9-]+)\.github\.io$/i.exec(location.hostname);
+    if (!m) return null;
+    var seg = location.pathname.split("/").filter(Boolean)[0];
+    return { owner: m[1], repo: seg && !/\.html?$/i.test(seg) ? decodeURIComponent(seg) : m[1] + ".github.io" };
+  }
+  var REPO = detectRepo();
+  var API = "https://api.github.com";
+  var owner = location.hash === "#owner";
+  var token = lsGet("sprint-token");
+  var remote = null, cached = lsJSON("sprint-cache"), local = lsJSON("sprint-preview");
+  var queue = lsJSON("sprint-queue") || [];
+  var sync = { state: REPO ? "idle" : "preview", msg: "" };
+  var loadState = REPO ? "loading" : "preview", lastFetch = null, branchReady = false, flushing = false, flushTimer = null, retryTimer = null;
+  var view = null, P = null, showAllLate = false, draft = null, partied = {};
+
+  function base() {
+    if (!REPO) return normalize(local || SEED);
+    return normalize(remote || cached || SEED);
+  }
+  function recompute() { P = queue.length ? applyOps(base(), queue) : base(); }
+  function isDone(id) { return !!P.done[id]; }
+  function skipped(cid) { return !!P.skip[cid]; }
+
+  // ------------------------------------------------------------------ reading
+  function getJSON(url, headers) {
+    return fetch(url, { headers: headers || {}, cache: "no-cache" }).then(function (r) {
+      if (r.ok) return r.json();
+      var e = new Error("HTTP " + r.status); e.status = r.status; throw e;
+    });
+  }
+  function fetchProgress() {
+    if (!REPO) return Promise.resolve(null);
+    var path = API + "/repos/" + encodeURIComponent(REPO.owner) + "/" + encodeURIComponent(REPO.repo) + "/contents/" + CONFIG.dataPath + "?ref=" + encodeURIComponent(CONFIG.dataBranch);
+    var h = { Accept: "application/vnd.github.raw+json" };
+    if (owner && token) h.Authorization = "Bearer " + token;
+    var raw = "https://raw.githubusercontent.com/" + REPO.owner + "/" + REPO.repo + "/" + CONFIG.dataBranch + "/" + CONFIG.dataPath;
+    function seedFile() { return getJSON(CONFIG.dataPath + "?t=" + Date.now()); } // no progress yet: the starting file next to the page
+    return getJSON(path, h).catch(function (e) {
+      if (e.status === 404) return seedFile();
+      return getJSON(raw + "?t=" + Date.now()).catch(function (e2) { if (e2.status === 404) return seedFile(); throw e2; });
+    });
+  }
+  function refresh() {
+    if (!REPO) return Promise.resolve();
+    return fetchProgress().then(function (data) {
+      var fresh = normalize(data);
+      if (!(remote && remote.updated && fresh.updated && fresh.updated < remote.updated)) remote = fresh;
+      cached = remote; lastFetch = Date.now(); loadState = "ok";
+      lsSet("sprint-cache", JSON.stringify(remote));
+      render();
+    }).catch(function () { loadState = cached ? "offline" : "failed"; render(); });
+  }
+
+  // ------------------------------------------------------------------ writing (owner mode)
+  function gh(path, opts) {
+    opts = opts || {};
+    var h = { Accept: "application/vnd.github+json", Authorization: "Bearer " + token, "X-GitHub-Api-Version": "2022-11-28" };
+    if (opts.body) h["Content-Type"] = "application/json";
+    return fetch(API + "/repos/" + encodeURIComponent(REPO.owner) + "/" + encodeURIComponent(REPO.repo) + path, { method: opts.method || "GET", headers: h, body: opts.body, cache: "no-store" });
+  }
+  function ghError(r) {
+    return r.json().catch(function () { return {}; }).then(function (j) {
+      var m = r.status === 401 ? "GitHub didn't accept the token (expired or mistyped)." :
+        r.status === 403 ? "The token can't write here: give it Contents → Read and write on this repository." :
+        r.status === 404 ? "The token can't see this repository: add it under Repository access." :
+        "GitHub said " + r.status + (j.message ? ": " + j.message : "") + ".";
+      var e = new Error(m); e.status = r.status; return e;
+    });
+  }
+  function b64enc(str) { var b = new TextEncoder().encode(str), s = ""; for (var i = 0; i < b.length; i++) s += String.fromCharCode(b[i]); return btoa(s); }
+  function b64dec(v) { var s = atob(String(v).replace(/\s/g, "")), b = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) b[i] = s.charCodeAt(i); return new TextDecoder().decode(b); }
+  function ensureBranch() {
+    if (branchReady) return Promise.resolve();
+    var br = encodeURIComponent(CONFIG.dataBranch);
+    return gh("/git/ref/heads/" + br).then(function (r) {
+      if (r.ok) { branchReady = true; return; }
+      if (r.status !== 404) return ghError(r).then(function (e) { throw e; });
+      return gh("").then(function (r2) {
+        if (!r2.ok) return ghError(r2).then(function (e) { throw e; });
+        return r2.json();
+      }).then(function (info) {
+        return gh("/git/ref/heads/" + encodeURIComponent(info.default_branch));
+      }).then(function (r3) {
+        if (!r3.ok) return ghError(r3).then(function (e) { throw e; });
+        return r3.json();
+      }).then(function (head) {
+        return gh("/git/refs", { method: "POST", body: JSON.stringify({ ref: "refs/heads/" + CONFIG.dataBranch, sha: head.object.sha }) });
+      }).then(function (r4) {
+        if (!r4.ok && r4.status !== 422) return ghError(r4).then(function (e) { throw e; });
+        branchReady = true;
+      });
+    });
+  }
+  function readForWrite() {
+    return ensureBranch().then(function () {
+      return gh("/contents/" + CONFIG.dataPath + "?ref=" + encodeURIComponent(CONFIG.dataBranch));
+    }).then(function (r) {
+      if (r.status === 404) return { sha: null, data: normalize(SEED) };
+      if (!r.ok) return ghError(r).then(function (e) { throw e; });
+      return r.json().then(function (j) { return { sha: j.sha, data: normalize(JSON.parse(b64dec(j.content))) }; });
+    });
+  }
+  function message(ops) {
+    if (ops.length === 1) {
+      var o = ops[0], u = ITEMS[o.id] || BLOCKS[o.id];
+      if (o.t === "done" && u) return "✓ " + CMAP[u.course].short + ": " + (u.label || u.text);
+      if (o.t === "undo" && u) return "Undo: " + CMAP[u.course].short + ": " + (u.label || u.text);
+      if (o.t === "live") return o.slot + " session started";
+      if (o.t === "stop") return "Session ended";
+      if (o.t === "note") return "Note for " + fShort(o.date);
+      return "Settings";
+    }
+    var n = ops.filter(function (o) { return o.t === "done"; }).length;
+    return n ? "✓ " + n + " items" : "Progress update";
+  }
+  function saveQueue() { if (queue.length) lsSet("sprint-queue", JSON.stringify(queue)); else lsDel("sprint-queue"); }
+  function enqueue(ops) {
+    queue = queue.concat(ops); saveQueue(); recompute(); render();
+    clearTimeout(flushTimer); flushTimer = setTimeout(flush, 1200);
+  }
+  function setSync(state, msg) { sync = { state: state, msg: msg || "" }; renderBanner(); renderFoot(); }
+  function flush() {
+    if (flushing || !queue.length) return;
+    if (!REPO) { local = applyOps(normalize(local || SEED), queue); queue = []; saveQueue(); lsSet("sprint-preview", JSON.stringify(local)); recompute(); setSync("preview"); render(); return; }
+    if (!token) { setSync("error", "Connect this device to save."); return; }
+    flushing = true; clearTimeout(retryTimer); setSync("busy");
+    var attempt = 0;
+    function tryOnce() {
+      var ops = queue.slice();
+      return readForWrite().then(function (cur) {
+        var next = applyOps(cur.data, ops);
+        next.updated = new Date().toISOString();
+        return gh("/contents/" + CONFIG.dataPath, { method: "PUT", body: JSON.stringify({ message: message(ops), content: b64enc(JSON.stringify(next, null, 1) + "\n"), branch: CONFIG.dataBranch, sha: cur.sha || undefined }) })
+          .then(function (r) {
+            if (r.ok) { queue = queue.slice(ops.length); saveQueue(); remote = next; cached = next; lsSet("sprint-cache", JSON.stringify(next)); return true; }
+            if ((r.status === 409 || r.status === 422) && attempt++ < 3) return new Promise(function (res) { setTimeout(res, 500 * attempt); }).then(tryOnce);
+            return ghError(r).then(function (e) { throw e; });
+          });
+      });
+    }
+    tryOnce().then(function () {
+      flushing = false; setSync("ok", new Date().toISOString()); recompute(); render();
+      if (queue.length) flushTimer = setTimeout(flush, 400);
+    }).catch(function (e) {
+      flushing = false; setSync("error", e && e.message ? e.message : "Couldn't reach GitHub.");
+      if (!e || !(e.status === 401 || e.status === 403 || e.status === 404)) retryTimer = setTimeout(flush, 20000);
+      recompute(); render();
+    });
+  }
+
+  // ------------------------------------------------------------------ plan queries
+  function unitsOn(date) {
+    var d = DAYMAP[date], out = [];
+    if (!d) return out;
+    d.sessions.forEach(function (s) { s.items.forEach(function (id) { var i = ITEMS[id]; if (!skipped(i.course)) out.push(i); }); });
+    d.blocks.forEach(function (b) { if (!skipped(b.course)) out.push(b); });
+    return out;
+  }
+  function slotUnits(date, slot) { return unitsOn(date).filter(function (u) { return u.slot === slot; }); }
+  function dayStats(date) {
+    var u = unitsOn(date), n = u.length, done = 0, min = 0, dmin = 0, timed = n > 0;
+    u.forEach(function (x) { var d = isDone(x.id); if (d) done++; if (x.min) { min += x.min; if (d) dmin += x.min; } else timed = false; });
+    return { n: n, done: done, min: min, dmin: dmin, timed: timed, frac: n ? (timed && min ? dmin / min : done / n) : 0, complete: n > 0 && done === n };
+  }
+  function lateUnits(today) {
+    var out = [];
+    PLAN.days.forEach(function (d) { if (d.date < today) unitsOn(d.date).forEach(function (u) { if (!isDone(u.id)) out.push(u); }); });
+    return out;
+  }
+  function aheadCount(today) {
+    var n = 0;
+    PLAN.days.forEach(function (d) { if (d.date > today) unitsOn(d.date).forEach(function (u) { if (isDone(u.id)) n++; }); });
+    return n;
+  }
+  function streak(today) {
+    var d = dayStats(today).complete ? today : addDays(today, -1), n = 0;
+    while (d >= FIRST) {
+      var s = dayStats(d);
+      if (s.n) { if (!s.complete) break; n++; }
+      d = addDays(d, -1);
+    }
+    return n;
+  }
+  function courseUnits(c) { return c.units.map(function (id) { return ITEMS[id] || BLOCKS[id]; }); }
+  function courseStats(c) {
+    var u = courseUnits(c), done = 0, last = null, min = 0, dmin = 0;
+    u.forEach(function (x) { if (x.min) min += x.min; if (isDone(x.id)) { done++; if (x.min) dmin += x.min; var t = isoDay(P.done[x.id]); if (!last || t > last) last = t; } });
+    return { n: u.length, done: done, min: min, dmin: dmin, complete: u.length > 0 && done === u.length, last: last };
+  }
+  function liveNow() {
+    var l = P.live;
+    if (!l) return null;
+    var age = (Date.now() - Date.parse(l.since)) / 60000;
+    if (!(age >= -5 && age <= 6 * 60) || isoDay(l.since) !== todayISO()) return null;
+    return l;
+  }
+  function slotStart(slot) { return toMin(P.times[slot]); }
+  function phaseLabel(d, date) {
+    var p = d ? d.phase : "";
+    if (p.indexOf("Phase 1") === 0) return "October · required courses";
+    if (p.indexOf("Phase 2") === 0) return "October · last gen ed courses";
+    if (p === "Setup") return "Day 1";
+    if (p === "UMPI Fall 2") return "UMPI Fall 2 term";
+    if (p === "Catch-up day") return "Catch-up day";
+    if (p === "Rest day") return "Rest day";
+    return p || "";
+  }
+
+  // ------------------------------------------------------------------ pieces
+  var CHECK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 8.6l3 3 6.6-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function chip(c) { return '<span class="chip ' + (c.platform === "Study.com" ? "Study" : esc(c.platform)) + '">' + esc(c.short) + "</span>"; }
+  function ring(frac, big, small) {
+    var size = 132, r = 59, circ = 2 * Math.PI * r, f = Math.max(0, Math.min(1, frac || 0));
+    return '<svg class="ring" viewBox="0 0 ' + size + " " + size + '" width="' + size + '" height="' + size + '" role="img" aria-label="' + esc(big + " " + small) + '">' +
+      '<circle cx="66" cy="66" r="' + r + '" fill="none" stroke="var(--ring-track)" stroke-width="12"/>' +
+      '<circle cx="66" cy="66" r="' + r + '" fill="none" stroke="var(--accent)" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + circ.toFixed(1) + '" stroke-dashoffset="' + (circ * (1 - f)).toFixed(1) + '" transform="rotate(-90 66 66)"' + (f ? "" : ' opacity="0"') + "/>" +
+      '<text x="66" y="66" text-anchor="middle" class="ring-big">' + esc(big) + '</text><text x="66" y="88" text-anchor="middle" class="ring-small">' + esc(small) + "</text></svg>";
+  }
+  function unitRow(u, opts) {
+    opts = opts || {};
+    var c = CMAP[u.course], done = isDone(u.id), label = u.label || u.text;
+    var meta = [];
+    if (opts.date) meta.push(fShort(u.date));
+    var kw = (KIND[u.kind] || "").toLowerCase().split(" ")[0].replace(/s$/, "");
+    if (u.kind && kw && label.toLowerCase().indexOf(kw) < 0) meta.push(KIND[u.kind]);
+    else if (!u.kind && u.finishes) meta.push("Finishes the course");
+    if (done && /T/.test(P.done[u.id] || "")) meta.push("done " + (isoDay(P.done[u.id]) === u.date ? "" : fMD(isoDay(P.done[u.id])) + ", ") + clock(P.done[u.id]));
+    var box = owner ? '<button class="check" type="button" data-toggle="' + esc(u.id) + '" aria-pressed="' + done + '" aria-label="' + esc((done ? "Done: " : "Mark done: ") + c.short + " " + label) + '">' + (done ? CHECK : "") + "</button>"
+      : '<span class="mark" aria-hidden="true">' + (done ? CHECK : "") + "</span>";
+    return '<div class="row' + (done ? " done" : "") + '">' + box + '<div class="t"><div class="label">' + chip(c) + esc(label) + (owner ? "" : '<span class="sr">' + (done ? " (done)" : " (not done yet)") + "</span>") + '</div><div class="meta">' + esc(meta.join(" · ")) + "</div></div>" +
+      '<span class="min">' + (u.min ? esc(hm(u.min)) : "") + "</span></div>";
+  }
+  function sessionTag(date, slot, units, today) {
+    var dn = units.filter(function (u) { return isDone(u.id); }).length, live = liveNow();
+    if (units.length && dn === units.length) return '<span class="tag done">Done ✓</span>';
+    if (date === today && live && live.slot === slot) return '<span class="tag live">Studying now</span>';
+    var st = slotStart(slot);
+    if (date < today) return dn ? '<span class="tag late">' + (units.length - dn) + " left</span>" : '<span class="tag late">Not done</span>';
+    if (date === today) {
+      if (dn) return '<span class="tag">' + dn + " of " + units.length + " done</span>";
+      if (st != null && nowMin() >= st + 20) return '<span class="tag late">Not started</span>';
+      if (st != null && nowMin() >= st) return '<span class="tag">Starting</span>';
+      return '<span class="tag">Up next</span>';
+    }
+    return "";
+  }
+
+  // ------------------------------------------------------------------ render: header, banner, footer
+  function renderTop() {
+    document.getElementById("top").innerHTML =
+      '<div class="eyebrow">Degree sprint · Oct 1 – Dec 18, 2026</div>' +
+      "<h1>" + esc(CONFIG.name) + "&rsquo;s degree sprint</h1>" +
+      '<p class="sub">Eleven online courses in October, then ten UMPI courses through December 18. Every chapter test, assignment and final is on the plan below.</p>' +
+      '<div class="updated" id="updated"></div>';
+    renderUpdated();
+  }
+  function renderUpdated() {
+    var el = document.getElementById("updated");
+    if (!el) return;
+    var bits = [];
+    if (P.updated) bits.push('<span><span class="dot' + ((Date.now() - Date.parse(P.updated)) < 3 * 3600e3 ? " on" : "") + '"></span>Last update ' + esc(ago(P.updated)) + " (" + esc(clock(P.updated)) + ")</span>");
+    if (loadState === "loading") bits.push("<span>Getting the latest…</span>");
+    el.innerHTML = bits.join("");
+  }
+  function renderBanner() {
+    var b = document.getElementById("banner"), html = "";
+    if (!REPO) html = '<div class="banner">Preview. Once this page is on GitHub Pages it shows live progress; here, check-offs stay in this browser.</div>';
+    else if (loadState === "offline") html = '<div class="banner warn">Can\'t reach GitHub right now, so this is the last progress this device saw. It refreshes on its own.</div>';
+    else if (loadState === "failed") html = '<div class="banner warn">Can\'t reach GitHub right now. Showing the plan; progress will appear when the connection is back.</div>';
+    if (owner) {
+      var s = sync.state === "busy" ? '<span class="sync busy">Saving…</span>' : sync.state === "ok" ? '<span class="sync ok">✓ Saved ' + esc(clock(sync.msg)) + "</span>" :
+        sync.state === "error" ? '<span class="sync err">Not saved</span>' : sync.state === "preview" ? '<span class="sync busy">Preview: saved in this browser</span>' :
+        queue.length ? '<span class="sync busy">Waiting to save</span>' : '<span class="sync busy">' + (REPO && !token ? "Not connected" : "Up to date") + "</span>";
+      html += '<div class="ownerbar"><b>Owner mode</b>' + s + '<span class="spacer"></span><button class="btn small" type="button" data-act="share">Copy family link</button><button class="btn small" type="button" data-act="settings">Settings</button><button class="btn small" type="button" data-act="leave">Done</button></div>';
+    }
+    if (owner && REPO && !token) html += '<div class="banner warn">Connect this device to save check-offs to GitHub. <button class="btn small" type="button" data-act="connect">Connect</button></div>';
+    else if (owner && sync.state === "error") html += '<div class="banner warn">Not saved yet: ' + esc(sync.msg) + ' <button class="btn small" type="button" data-act="retry">Try again</button>' + (/token/i.test(sync.msg) ? ' <button class="btn small" type="button" data-act="connect">Change token</button>' : "") + "</div>";
+    b.innerHTML = html;
+  }
+  function renderFoot() {
+    var f = document.getElementById("foot");
+    var left = "Plan built " + esc(fMD(PLAN.meta.built)) + ", 2026. Progress updates on its own.";
+    var right;
+    right = owner ? "Owner mode on this device" : '<button type="button" data-act="owner">Owner</button>';
+    f.innerHTML = "<span>" + left + "</span><span>" + right + "</span>";
+  }
+
+  // ------------------------------------------------------------------ render: main
+  function hero(date, today) {
+    var d = DAYMAP[date], st = dayStats(date), live = liveNow();
+    var eyebrow = date === today ? "Today" : (date < today ? "Earlier" : "Coming up");
+    var big = st.n ? st.done + "/" + st.n : "—", small = st.n ? (st.n === 1 ? "item" : "items") : "nothing planned";
+    var status, sub = "";
+    if (!st.n) {
+      var info = d && d.info.length ? d.info[0].text : "";
+      status = { cls: "", t: d && d.phase === "Thanksgiving" ? "Thanksgiving" : (dow(date) === 0 ? (date < PLAN.meta.fall2 ? "Catch-up day" : "Rest day") : (date === LAST ? "Finish line" : "Nothing scheduled")) };
+      sub = dow(date) === 0 && date < PLAN.meta.fall2 ? "Nothing new today: finishing anything left over, or resting." : info;
+    } else if (date === today && live && slotUnits(date, live.slot).length) {
+      status = { cls: "live", t: "Studying now" };
+      sub = live.slot + " session, since " + clock(live.since) + " (" + hm(Math.max(1, Math.round((Date.now() - Date.parse(live.since)) / 60000))) + ")";
+    } else if (st.complete) {
+      status = { cls: "done", t: date === today ? "Day complete" : "All done" };
+      sub = "All " + st.n + " " + small + " checked off" + (st.timed ? " · " + hm(st.min) : "") + ".";
+    } else if (date === today) {
+      var nm = nowMin(), lateSlot = null, nextSlot = null;
+      SLOTS.forEach(function (s) {
+        var us = slotUnits(date, s); if (!us.length) return;
+        var dn = us.filter(function (u) { return isDone(u.id); }).length, start = slotStart(s);
+        if (dn < us.length && !dn && start != null && nm >= start + 20 && !lateSlot) lateSlot = s;
+        if (dn < us.length && start != null && start > nm && !nextSlot) nextSlot = s;
+      });
+      if (lateSlot) { status = { cls: "late", t: lateSlot + " session not started" }; sub = "Planned for " + minLabel(slotStart(lateSlot)) + "."; }
+      else if (nextSlot && !st.done) { status = { cls: "next", t: "Next: " + nextSlot.toLowerCase() + " session" }; sub = "Starts at " + minLabel(slotStart(nextSlot)) + "."; }
+      else if (nextSlot) { status = { cls: "next", t: "In progress" }; sub = "Next: " + nextSlot.toLowerCase() + " session at " + minLabel(slotStart(nextSlot)) + "."; }
+      else { status = { cls: "next", t: "In progress" }; sub = (st.n - st.done) + " left today."; }
+      if (st.timed) sub += " " + hm(st.dmin) + " of " + hm(st.min) + " done.";
+    } else if (date < today) {
+      status = { cls: "late", t: st.done ? st.done + " of " + st.n + " done" : "Not done yet" };
+      sub = (st.n - st.done) + " still on the catch-up list.";
+    } else {
+      status = { cls: "", t: st.n + " " + small + " planned" };
+      sub = st.timed ? hm(st.min) + " of study planned." : "";
+    }
+    var pills = [];
+    if (date === today || date > today) {
+      var sk = streak(today), late = lateUnits(today), ahead = aheadCount(today);
+      if (sk) pills.push('<span class="pill streak">🔥 ' + sk + "-day streak</span>");
+      if (late.length) pills.push('<span class="pill warn">Catching up: ' + late.length + " from earlier days</span>");
+      else if (ahead) pills.push('<span class="pill good">Ahead: ' + ahead + " item" + (ahead > 1 ? "s" : "") + " early</span>");
+      else pills.push('<span class="pill good">On track</span>');
+    }
+    var nav = '<div class="daynav"><button class="btn" type="button" data-nav="-1"' + (date <= FIRST ? " disabled" : "") + ">‹ Previous</button>" +
+      '<button class="btn' + (date === today ? " primary" : "") + '" type="button" data-nav="0">Today</button>' +
+      '<button class="btn" type="button" data-nav="1"' + (date >= LAST ? " disabled" : "") + ">Next ›</button></div>";
+    return '<section class="card" aria-label="Day summary"><div class="hero">' + ring(st.frac, big, small) +
+      '<div><div class="eyebrow">' + esc(eyebrow) + (phaseLabel(d, date) ? " · " + esc(phaseLabel(d, date)) : "") + '</div><div class="day-title">' + esc(fLong(date)) + "</div>" +
+      '<div class="status ' + status.cls + '"><span class="dot"></span><span>' + esc(status.t) + "</span></div>" + (sub ? '<div class="status-sub">' + esc(sub) + "</div>" : "") +
+      (pills.length ? '<div class="pills">' + pills.join("") + "</div>" : "") + "</div></div>" + nav + "</section>";
+  }
+  function sessionsCard(date, today) {
+    var d = DAYMAP[date];
+    if (!d) return "";
+    var parts = [];
+    SLOTS.forEach(function (s) {
+      var us = slotUnits(date, s), info = d.info.filter(function (x) { return x.slot === s; });
+      if (!us.length && !info.length) return;
+      var st = slotStart(s), live = liveNow(), dn = us.filter(function (u) { return isDone(u.id); }).length;
+      var ctl = "";
+      if (owner && date === today && us.length && dn < us.length) ctl = live && live.slot === s ? '<button class="btn small" type="button" data-act="stop">End session</button>' : '<button class="btn small" type="button" data-live="' + s + '">Start session</button>';
+      var mins = us.reduce(function (a, u) { return a + (u.min || 0); }, 0);
+      parts.push('<div class="session"><div class="session-h"><h3>' + esc(s) + '</h3><span class="when">' + (st != null ? esc(minLabel(st)) + " · " : "") + esc(mins ? hm(mins) : SLOT_LEN[s]) + "</span>" + sessionTag(date, s, us, today) + '<span class="spacer"></span>' + ctl + "</div>" +
+        info.map(function (x) { return '<div class="info">' + esc(x.text) + "</div>"; }).join("") +
+        '<div class="rows">' + us.map(function (u) { return unitRow(u); }).join("") + "</div></div>");
+    });
+    if (!parts.length) return "";
+    return '<section class="card" aria-label="Sessions"><div class="card-h"><h2>' + (date === today ? "Today's plan" : "The plan for " + esc(fShort(date))) + '</h2><span class="small muted">' + (owner ? "Tap a box when it's done" : "✓ = checked off") + "</span></div>" + parts.join("") + "</section>";
+  }
+  function lateCard(today) {
+    var late = lateUnits(today);
+    if (!late.length) return "";
+    var mins = late.reduce(function (a, u) { return a + (u.min || 0); }, 0);
+    var rows = late.map(function (u) { return unitRow(u, { date: true }); });
+    var shown = owner || showAllLate ? rows : rows.slice(0, 4);
+    return '<section class="card" aria-label="Catch-up list"><div class="card-h"><h2>Catch-up list</h2><span class="small muted">' + late.length + " from earlier days" + (mins ? " · " + esc(hm(mins)) : "") + "</span></div>" +
+      '<p class="small muted" style="margin:-4px 0 6px">' + (owner ? "Clear these first, or on Sunday." : "Planned on earlier days and not checked off yet. Sundays are for catching up.") + "</p>" +
+      '<div class="rows">' + shown.join("") + "</div>" +
+      (rows.length > shown.length ? '<button class="btn small" type="button" data-act="alllate" style="margin-top:8px">Show all ' + rows.length + "</button>" : "") + "</section>";
+  }
+  function noteCard(date, today) {
+    var n = P.notes[date];
+    if (owner) {
+      return '<section class="card" aria-label="Note"><div class="card-h"><h2>' + (date === today ? "Today's note" : "Note for " + esc(fShort(date))) + '</h2><span class="small muted">Shows on the page</span></div>' +
+        '<textarea id="note-input" maxlength="400" data-date="' + date + '" placeholder="One line about today: a win, what\'s hard, what\'s next.">' + esc(draft && draft.date === date ? draft.text : (n ? n.text : "")) + "</textarea>" +
+        '<div class="daynav" style="margin-top:8px"><button class="btn primary small" type="button" data-act="note" data-date="' + date + '">Save note</button></div></section>';
+    }
+    if (!n) {
+      var y = addDays(date, -1), yn = date === today ? P.notes[y] : null;
+      if (!yn) return "";
+      return '<section class="card" aria-label="Note"><div class="card-h"><h2>Yesterday\'s note</h2><span class="small muted">' + esc(fShort(y)) + '</span></div><p class="note-text">' + esc(yn.text) + "</p></section>";
+    }
+    return '<section class="card" aria-label="Note"><div class="card-h"><h2>From ' + esc(CONFIG.name) + '</h2><span class="small muted">' + esc(n.at ? clock(n.at) : "") + '</span></div><p class="note-text">' + esc(n.text) + "</p></section>";
+  }
+  function cheerText(today) {
+    var st = dayStats(today), live = liveNow(), nm = CONFIG.name;
+    var finished = PLAN.courses.filter(function (c) { var s = courseStats(c); return s.complete && s.last === today; });
+    if (finished.length) return "Congrats on finishing " + CMAP[finished[0].id].title.split(":")[0] + " today, " + nm + "! One more down. 🎉";
+    if (st.complete) return "Saw you checked off everything today. Proud of you, " + nm + "! 🎉";
+    if (live) return "Saw you're in your " + live.slot.toLowerCase() + " session. Keep going, " + nm + ", I'm proud of you! 💪";
+    if (st.done) return st.done + " of " + st.n + " done today. You've got this, " + nm + "! 💪";
+    return "Cheering you on today, " + nm + ". One item at a time! 💪";
+  }
+  function cheerCard(today) {
+    if (owner) return "";
+    return '<section class="card cheer" aria-label="Cheer"><div class="card-h"><h2>Cheer him on</h2></div>' +
+      '<p class="small" style="margin:0 0 10px;color:var(--ink-2)">A quick message after a finished session or course goes a long way. This opens your messages with a note filled in.</p>' +
+      '<button class="btn primary" type="button" data-act="cheer">Send a cheer</button></section>';
+  }
+  function weekCard(date, today) {
+    var start = addDays(date, -dow(date)), cells = [];
+    for (var k = 0; k < 7; k++) {
+      var d = addDays(start, k), s = dayStats(d), inPlan = !!DAYMAP[d];
+      var st = !inPlan ? "" : !s.n ? (dow(d) === 0 ? "rest" : "—") : s.complete ? "✓" : d <= today ? s.done + "/" + s.n : "";
+      cells.push('<button type="button" class="wday' + (d === date ? " sel" : "") + (d === today ? " today" : "") + (s.complete ? " complete" : "") + (d < today && s.n && !s.complete ? " short" : "") + '" data-goto="' + d + '"' + (inPlan ? "" : " disabled") + ' aria-label="' + esc(fLong(d) + (s.n ? ": " + s.done + " of " + s.n + " done" : "")) + '">' +
+        '<span class="dname">' + "SMTWTFS"[k] + '</span><span class="dnum">' + (+d.slice(8)) + '</span><span class="wbar"><i style="height:' + (s.n ? Math.round(s.frac * 100) : 0) + '%"></i></span><span class="wst">' + esc(st) + "</span></button>");
+    }
+    var wk = 0, wn = 0;
+    for (var j = 0; j < 7; j++) { var x = dayStats(addDays(start, j)); wk += x.done; wn += x.n; }
+    return '<section class="card" aria-label="This week"><div class="card-h"><h2>' + (between(start, todayISO()) >= 0 && between(start, todayISO()) < 7 ? "This week" : "Week of " + esc(fMD(start))) + '</h2><span class="small muted">' + wk + " of " + wn + ' done</span></div><div class="week">' + cells.join("") + "</div></section>";
+  }
+  function courseName(c) { var p = c.title.split(":"); return p[0].trim() !== c.short ? p[0].trim() : (p[1] || c.title).trim(); }
+  function courseLine(c, today) {
+    var s = courseStats(c), sk = skipped(c.id), txt, ok = false;
+    if (sk) txt = "Not needed";
+    else if (s.complete) {
+      var delta = between(c.end, s.last); ok = true;
+      txt = "Finished " + fMD(s.last) + (delta < 0 ? " · " + -delta + " day" + (delta < -1 ? "s" : "") + " early" : delta > 0 ? " · " + delta + " day" + (delta > 1 ? "s" : "") + " after plan" : " · on plan");
+    } else if (s.done) txt = s.done + " of " + s.n + " · finish " + fMD(c.end);
+    else if (today >= c.start) txt = "Starts now" + (c.group === "extra" ? " (if needed)" : "");
+    else txt = "Starts " + fMD(c.start) + (c.group === "extra" ? " (if needed)" : "");
+    var f = s.n ? s.done / s.n : 0;
+    return '<div class="crow' + (sk ? " skip" : "") + '"><span class="name">' + chip(c) + esc(courseName(c)) + '</span><span class="st' + (ok ? " ok" : "") + '">' + esc(txt) + '</span><span class="track"><i style="width:' + (f * 100).toFixed(1) + '%"></i></span></div>';
+  }
+  function bigCard(today) {
+    var oct = PLAN.courses.filter(function (c) { return c.group === "oct" && !skipped(c.id); });
+    var um = PLAN.courses.filter(function (c) { return c.group === "umpi"; });
+    var ex = PLAN.courses.filter(function (c) { return c.group === "extra"; });
+    var octDone = oct.filter(function (c) { return courseStats(c).complete; }).length;
+    var umDone = um.filter(function (c) { return courseStats(c).complete; }).length;
+    var oi = 0, on = 0, om = 0, odm = 0;
+    oct.forEach(function (c) { var s = courseStats(c); oi += s.done; on += s.n; om += s.min; odm += s.dmin; });
+    function tile(target, toLabel, doneLabel, complete) {
+      var n = between(today, target), big, lab;
+      if (complete) { big = "Done ✓"; lab = doneLabel; }
+      else if (n >= 0) { big = n > 1 ? n + " days" : n === 1 ? "Tomorrow" : "Today"; lab = toLabel; }
+      else { big = -n + " day" + (n < -1 ? "s" : "") + " over"; lab = "past the target for " + doneLabel.toLowerCase(); }
+      return '<div class="tile"><b>' + esc(big) + "</b><span>" + esc(lab) + "</span><span>" + esc(fMD(target)) + "</span></div>";
+    }
+    var allDone = PLAN.courses.filter(function (c) { return !skipped(c.id); }).every(function (c) { return courseStats(c).complete; });
+    var fall = today >= PLAN.meta.fall2;
+    var octList = '<div class="clist">' + PLAN.courses.filter(function (c) { return c.group === "oct"; }).map(function (c) { return courseLine(c, today); }).join("") + "</div>";
+    var umList = '<div class="clist">' + um.map(function (c) { return courseLine(c, today); }).join("") + ex.map(function (c) { return courseLine(c, today); }).join("") + "</div>";
+    return '<section class="card" aria-label="The big picture"><div class="card-h"><h2>The big picture</h2></div>' +
+      '<div class="tiles">' + tile(PLAN.meta.octEnd, "until October coursework is done", "October coursework", octDone === oct.length) + tile(PLAN.meta.end, "to the finish line", "The finish line", allDone) + "</div>" +
+      '<div class="meter"><div class="top-line"><span>October courses: <b>' + octDone + " of " + oct.length + '</b> finished</span></div><div class="track"><i style="width:' + (on ? oi / on * 100 : 0).toFixed(1) + '%"></i></div><div class="small muted" style="margin-top:4px">' + oi + " of " + on + " items · " + esc(hours(odm)) + " of " + esc(hours(om)) + " of study</div></div>" +
+      '<div class="meter"><div class="top-line"><span>UMPI Fall 2: <b>' + umDone + " of " + um.length + '</b> courses</span><span class="muted">Oct 26 – Dec 18</span></div><div class="track"><i style="width:' + (umDone / um.length * 100).toFixed(1) + '%"></i></div></div>' +
+      (fall ? '<div class="group-label">UMPI Fall 2</div>' + umList + '<details style="margin-top:12px"><summary>October courses</summary>' + octList + "</details>"
+        : '<div class="group-label">October courses</div>' + octList + '<details style="margin-top:12px"><summary>UMPI Fall 2 courses</summary>' + umList + "</details>") + "</section>";
+  }
+  function milestoneList(today) {
+    var list = [];
+    PLAN.courses.forEach(function (c) {
+      if (skipped(c.id)) return;
+      var s = courseStats(c);
+      list.push({ date: c.end, label: (c.group === "umpi" ? c.short + " " + c.title : c.title.split(":")[0]) + " done", sub: c.optional && c.group === "extra" ? "Only if needed" : "", hit: s.complete, when: s.last });
+    });
+    PLAN.marks.forEach(function (m) {
+      var hit = false, when = null;
+      if (m.kind === "date") hit = today >= m.date;
+      else {
+        var cs = PLAN.courses.filter(function (c) { return !skipped(c.id) && (m.kind === "all" || c.group === "oct"); });
+        hit = cs.every(function (c) { return courseStats(c).complete; });
+        if (hit) cs.forEach(function (c) { var l = courseStats(c).last; if (!when || l > when) when = l; });
+      }
+      list.push({ date: m.date, label: m.label, big: true, hit: hit, when: when });
+    });
+    list.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : (a.big ? 1 : -1); });
+    return list;
+  }
+  function milestonesCard(today) {
+    var list = milestoneList(today), hits = list.filter(function (m) { return m.hit; }).length;
+    var nextIdx = list.findIndex(function (m) { return !m.hit; });
+    function row(m, i) {
+      return '<div class="mrow' + (m.hit ? " hit" : "") + (i === nextIdx ? " next" : "") + '"><span class="md">' + esc(fMD(m.hit && m.when ? m.when : m.date)) + '</span><span class="mi"></span><span class="ml">' + (m.big ? "<b>" + esc(m.label) + "</b>" : esc(m.label)) +
+        (m.hit && m.when && m.when !== m.date ? "<small>Planned " + esc(fMD(m.date)) + "</small>" : m.sub ? "<small>" + esc(m.sub) + "</small>" : "") + "</span></div>";
+    }
+    var upcoming = list.map(function (m, i) { return { m: m, i: i }; }).filter(function (o) { return !o.m.hit; }).slice(0, 4);
+    return '<section class="card" aria-label="Milestones"><div class="card-h"><h2>Milestones</h2><span class="small muted">' + hits + " of " + list.length + ' reached</span></div><div class="ms">' +
+      upcoming.map(function (o) { return row(o.m, o.i); }).join("") + "</div>" +
+      '<details style="margin-top:8px"><summary>All milestones</summary><div class="ms">' + list.map(row).join("") + "</div></details></section>";
+  }
+
+  function render() {
+    recompute();
+    var today = todayISO();
+    if (!view) view = today < FIRST ? FIRST : today > LAST ? LAST : today;
+    var late = view === today ? lateCard(today) : "";
+    var left = hero(view, today) + (owner ? late + sessionsCard(view, today) : sessionsCard(view, today) + late);
+    var right = noteCard(view, today) + cheerCard(today) + weekCard(view, today) + bigCard(today) + milestonesCard(today);
+    var ta = document.getElementById("note-input"), focus = ta && document.activeElement === ta ? [ta.selectionStart, ta.selectionEnd] : null;
+    document.getElementById("app").innerHTML = '<div class="cols"><div class="stack">' + left + '</div><div class="stack">' + right + "</div></div>";
+    if (focus) { var nt = document.getElementById("note-input"); if (nt) { nt.focus(); try { nt.setSelectionRange(focus[0], focus[1]); } catch (e) {} } }
+    renderUpdated(); renderBanner(); renderFoot();
+    celebrate(today);
+  }
+
+  // ------------------------------------------------------------------ small effects
+  function toast(msg) {
+    var t = document.getElementById("toast");
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toast.timer); toast.timer = setTimeout(function () { t.hidden = true; }, 3200);
+  }
+  function confetti() {
+    try { if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; } catch (e) {}
+    var box = document.getElementById("confetti"), cols = ["#1F7A55", "#2A78D6", "#E0592A", "#F2B51B", "#17A673", "#C2410C"];
+    box.innerHTML = "";
+    for (var i = 0; i < 80; i++) {
+      var p = document.createElement("i");
+      p.style.left = Math.random() * 100 + "vw"; p.style.background = cols[i % cols.length];
+      p.style.setProperty("--dx", (Math.random() * 120 - 60) + "px");
+      p.style.animationDuration = 2.2 + Math.random() * 1.8 + "s"; p.style.animationDelay = Math.random() * .5 + "s";
+      box.appendChild(p);
+    }
+    setTimeout(function () { box.innerHTML = ""; }, 5000);
+  }
+  function celebrate(today) {
+    if (view !== today || !dayStats(today).complete) return;
+    var k = "sprint-party-" + today;
+    if (partied[k] || lsGet(k)) return;
+    partied[k] = 1; lsSet(k, "1"); confetti();
+  }
+
+  // ------------------------------------------------------------------ actions
+  function toggle(id) {
+    var u = ITEMS[id] || BLOCKS[id];
+    if (!u) return;
+    if (isDone(id)) { enqueue([{ t: "undo", id: id }]); return; }
+    var ops = [{ t: "done", id: id, at: new Date().toISOString() }], today = todayISO(), live = liveNow();
+    var after = applyOps(P, ops);
+    // ticking the last item of the live session ends it
+    if (live && live.slot === u.slot && u.date === today && slotUnits(today, live.slot).every(function (x) { return x.id === id || after.done[x.id]; })) ops.push({ t: "stop" });
+    enqueue(ops);
+    var c = CMAP[u.course], cs = courseStats(c);
+    if (cs.complete) { confetti(); toast(c.title.split(":")[0] + " finished!"); }
+  }
+  function openConnect() {
+    var d = document.getElementById("connect");
+    document.getElementById("repo-name").textContent = REPO ? REPO.owner + "/" + REPO.repo : "your repository";
+    document.getElementById("connect-err").textContent = "";
+    document.getElementById("token-input").value = "";
+    if (d.showModal) d.showModal(); else d.setAttribute("open", "");
+  }
+  function connect(e) {
+    e.preventDefault();
+    var v = document.getElementById("token-input").value.trim(), err = document.getElementById("connect-err");
+    if (!v) { err.textContent = "Paste the token first."; return; }
+    err.textContent = "Checking…";
+    fetch(API + "/repos/" + encodeURIComponent(REPO.owner) + "/" + encodeURIComponent(REPO.repo), { headers: { Accept: "application/vnd.github+json", Authorization: "Bearer " + v }, cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) return ghError(r).then(function (x) { err.textContent = x.message; });
+        var before = token; token = v; branchReady = false;
+        return ensureBranch().then(function () {
+          lsSet("sprint-token", v);
+          document.getElementById("connect").close(); toast("Connected. Check-offs now save to GitHub.");
+          setSync("idle"); refresh(); if (queue.length) flush();
+        }).catch(function (x) { token = before; branchReady = false; err.textContent = x.message; });
+      }).catch(function () { err.textContent = "Couldn't reach GitHub. Check the connection and try again."; });
+  }
+  function openSettings() {
+    SLOTS.forEach(function (s) { document.getElementById("t-" + s).value = P.times[s] || ""; });
+    var opts = PLAN.courses.filter(function (c) { return c.optional; });
+    document.getElementById("skip-list").innerHTML = opts.map(function (c) {
+      return '<label class="opt"><input type="checkbox" data-skip="' + esc(c.id) + '"' + (skipped(c.id) ? " checked" : "") + "> " + esc(c.title) + "</label>";
+    }).join("");
+    document.getElementById("forget").hidden = !token;
+    document.getElementById("settings").showModal();
+  }
+  function saveSettings(e) {
+    e.preventDefault();
+    var ops = [], times = {}, changed = false;
+    SLOTS.forEach(function (s) { var v = document.getElementById("t-" + s).value; if (v && v !== P.times[s]) { times[s] = v; changed = true; } });
+    if (changed) ops.push({ t: "times", times: times });
+    document.querySelectorAll("[data-skip]").forEach(function (b) { var cid = b.getAttribute("data-skip"); if (b.checked !== skipped(cid)) ops.push({ t: "skip", cid: cid, on: b.checked }); });
+    document.getElementById("settings").close();
+    if (ops.length) enqueue(ops);
+  }
+  function cheer() {
+    var text = cheerText(todayISO());
+    if (navigator.share) { navigator.share({ text: text }).catch(function () {}); return; }
+    var done = function () { toast("Copied. Paste it into a text to him."); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { prompt("Copy this message:", text); });
+    else prompt("Copy this message:", text);
+  }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-toggle],[data-nav],[data-goto],[data-live],[data-act]");
+    if (!t) return;
+    if (t.hasAttribute("data-toggle")) { if (owner) toggle(t.getAttribute("data-toggle")); return; }
+    if (t.hasAttribute("data-nav")) { var n = +t.getAttribute("data-nav"), today = todayISO(); view = n === 0 ? (today < FIRST ? FIRST : today > LAST ? LAST : today) : addDays(view, n); if (view < FIRST) view = FIRST; if (view > LAST) view = LAST; showAllLate = false; render(); return; }
+    if (t.hasAttribute("data-goto")) { view = t.getAttribute("data-goto"); render(); return; }
+    if (t.hasAttribute("data-live")) { enqueue([{ t: "live", slot: t.getAttribute("data-live"), since: new Date().toISOString() }]); return; }
+    var a = t.getAttribute("data-act");
+    if (a === "stop") enqueue([{ t: "stop" }]);
+    else if (a === "note") { var v = (document.getElementById("note-input").value || "").trim(); draft = null; enqueue([{ t: "note", date: t.getAttribute("data-date"), text: v, at: new Date().toISOString() }]); toast(v ? "Note saved." : "Note cleared."); }
+    else if (a === "share") { var link = location.origin + location.pathname; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(function () { toast("Link copied: " + link); }, function () { prompt("Family link:", link); }); else prompt("Family link:", link); }
+    else if (a === "cheer") cheer();
+    else if (a === "alllate") { showAllLate = true; render(); }
+    else if (a === "owner") { location.hash = "owner"; }
+    else if (a === "leave") { history.replaceState(null, "", location.pathname + location.search); owner = false; render(); }
+    else if (a === "connect") openConnect();
+    else if (a === "retry") flush();
+    else if (a === "settings") openSettings();
+  });
+  document.addEventListener("input", function (e) { if (e.target && e.target.id === "note-input") draft = { date: e.target.getAttribute("data-date"), text: e.target.value }; });
+  window.addEventListener("hashchange", function () {
+    var was = owner; owner = location.hash === "#owner";
+    if (owner !== was) { render(); if (owner && REPO && !token) openConnect(); refresh(); }
+  });
+  document.getElementById("connect-form").addEventListener("submit", connect);
+  document.getElementById("connect-cancel").addEventListener("click", function () { document.getElementById("connect").close(); });
+  document.getElementById("settings-form").addEventListener("submit", saveSettings);
+  document.getElementById("settings-cancel").addEventListener("click", function () { document.getElementById("settings").close(); });
+  document.getElementById("forget").addEventListener("click", function () { lsDel("sprint-token"); token = null; document.getElementById("settings").close(); toast("This device is disconnected."); render(); });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) { refresh(); if (owner && queue.length) flush(); } });
+  setInterval(function () { if (!document.hidden) refresh(); }, CONFIG.pollSeconds * 1000);
+  setInterval(function () { if (!document.hidden && !document.querySelector("dialog[open]")) render(); }, 60000);
+
+  // ------------------------------------------------------------------ start
+  recompute();
+  renderTop();
+  render();
+  refresh().then(function () { if (owner && REPO && !token) openConnect(); if (owner && queue.length) flush(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+ "version": 1,
+ "updated": null,
+ "done": {
+  "macro-u1": "2026-10-01",
+  "macro-m1": "2026-10-01",
+  "macro-u2": "2026-10-02",
+  "macro-m2": "2026-10-02"
+ },
+ "live": null,
+ "notes": {},
+ "skip": {},
+ "times": {
+  "Morning": "08:00",
+  "Afternoon": "13:00",
+  "Evening": "19:00"
+ }
+}
