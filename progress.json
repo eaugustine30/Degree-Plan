@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-04T00:30:12.396Z",
+ "updated": "2026-10-04T01:25:51.851Z",
  "done": {
   "macro-u1": "2026-10-01",
   "macro-m1": "2026-10-01",
@@ -12,7 +12,7 @@
  "notes": {},
  "skip": {},
  "times": {
-  "Morning": "08:00",
+  "Morning": "09:00",
   "Afternoon": "13:00",
   "Evening": "19:00"
  }
